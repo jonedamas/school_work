@@ -7,3 +7,6 @@ Repository for my UiS school projects.
  - IND660 Investment analysis 2
 
  - STA510 Statistical modelling and simulation
+
+ - DAT110 Introduction to programming
+
