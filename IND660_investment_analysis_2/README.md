@@ -1,2 +1,3 @@
 # IND660
-Repository for IND660 Investment analysis 2 projects
+
+Folder for IND660 Investment analysis 2 work
