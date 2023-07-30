@@ -1,2 +1,3 @@
-# IND660
-Repository for IND660 Investment analysis 2 projects
+# School work repository
+
+Repository for my UiS school projects
