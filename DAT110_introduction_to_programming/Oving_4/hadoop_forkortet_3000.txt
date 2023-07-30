@@ -1,0 +1,3000 @@
+From general-return-2133-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Fri Oct 01 15:07:28 2010
+Return-Path: <general-return-2133-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 98655 invoked from network); 1 Oct 2010 15:07:28 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 1 Oct 2010 15:07:28 -0000
+Received: (qmail 25490 invoked by uid 500); 1 Oct 2010 15:07:27 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 25064 invoked by uid 500); 1 Oct 2010 15:07:23 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 25056 invoked by uid 99); 1 Oct 2010 15:07:22 -0000
+Received: from nike.apache.org (HELO nike.apache.org) (192.87.106.230)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Fri, 01 Oct 2010 15:07:22 +0000
+X-ASF-Spam-Status: No, hits=2.2 required=10.0
+	tests=FREEMAIL_FROM,HTML_MESSAGE,RCVD_IN_DNSWL_NONE,SPF_PASS,T_TO_NO_BRKTS_FREEMAIL
+X-Spam-Check-By: apache.org
+Received-SPF: pass (nike.apache.org: domain of marcoscba@gmail.com designates 74.125.82.42 as permitted sender)
+Received: from [74.125.82.42] (HELO mail-ww0-f42.google.com) (74.125.82.42)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Fri, 01 Oct 2010 15:07:14 +0000
+Received: by wwb13 with SMTP id 13so490553wwb.5
+        for <general@hadoop.apache.org>; Fri, 01 Oct 2010 08:06:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:mime-version:received:received:date:message-id
+         :subject:from:to:content-type;
+        bh=LLeRkFnW2xmWuQ0PKv0hSNY+S4lPpRMOVHh8Holkf2c=;
+        b=MMjKqWH/CSIwYynGokX5798bCBV4zcc4VYqMlnAblxbUEGsKUi0gEsaFiuNQjppzcW
+         YgbPrM/daMEIdm9/pA13qrErOjjb6mKaZG0P1fO/g6/tzzk35k9tuvaVJZtT5sc1Irpa
+         89bCoAhXQasIV4KM4ESHDHQaOx1i5xHAsjCi0=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=mime-version:date:message-id:subject:from:to:content-type;
+        b=WT1fOPKv4AmzJWfv/gDcl/Q4EuUsvmz/sd/IhaonFDZbzmaPVcupp36cYnLM6k6kHq
+         v4OlGa7dZf2SXaFo9gTChhkijt8VdsJfEQ+HhSqie3Bc/91fnc0cc/Wi+KZO6uxYmmOP
+         TzeLLy2FavKDX1db/OreJ+1O/u5qXs8b0M0xg=
+MIME-Version: 1.0
+Received: by 10.216.153.140 with SMTP id f12mr2211173wek.111.1285945614642;
+ Fri, 01 Oct 2010 08:06:54 -0700 (PDT)
+Received: by 10.216.51.145 with HTTP; Fri, 1 Oct 2010 08:06:54 -0700 (PDT)
+Date: Fri, 1 Oct 2010 12:06:54 -0300
+Message-ID: <AANLkTin6ZUrWYUscAXmq0bOG8mWA35xcAfvLD-jYVzwu@mail.gmail.com>
+Subject: Is it possible write directly to datanode's?
+From: Marcos Pinto <marcoscba@gmail.com>
+To: general@hadoop.apache.org
+Content-Type: multipart/alternative; boundary=0016e65b54dc8fb24c04918f8bcf
+X-Virus-Checked: Checked by ClamAV on apache.org
+
+--0016e65b54dc8fb24c04918f8bcf
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hi guys, I gotta a question and I really would appreciate some help,
+suggestion, or advices.
+Is it possible write directly to the datanode's and eliminate the bottleneck
+to write into HDFS?
+for example: I gotta 40 writers and I writes th data direct to namenode, i
+was wondering if it would become a bottleneck so I would like to know
+if it is possible to write the data direct to the datanode's.
+I've read that Hadoop doesnt support multiple writes so how can we deal with
+big cluster? I mean I am really going to have this bottleneck???
+
+Thanks in advanced.
+
+--0016e65b54dc8fb24c04918f8bcf--
+
+From general-return-2134-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Sat Oct 02 04:28:00 2010
+Return-Path: <general-return-2134-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 94628 invoked from network); 2 Oct 2010 04:28:00 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 2 Oct 2010 04:28:00 -0000
+Received: (qmail 2672 invoked by uid 500); 2 Oct 2010 04:27:59 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 2122 invoked by uid 500); 2 Oct 2010 04:27:55 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 2114 invoked by uid 99); 2 Oct 2010 04:27:53 -0000
+Received: from athena.apache.org (HELO athena.apache.org) (140.211.11.136)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sat, 02 Oct 2010 04:27:53 +0000
+X-ASF-Spam-Status: No, hits=-2.3 required=10.0
+	tests=RCVD_IN_DNSWL_MED,SPF_PASS
+X-Spam-Check-By: apache.org
+Received-SPF: pass (athena.apache.org: domain of rmalviya@apple.com designates 17.254.13.23 as permitted sender)
+Received: from [17.254.13.23] (HELO mail-out4.apple.com) (17.254.13.23)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sat, 02 Oct 2010 04:27:44 +0000
+Received: from relay16.apple.com (relay16.apple.com [17.128.113.55])
+	by mail-out4.apple.com (Postfix) with ESMTP id CBEB9B33BCBA
+	for <general@hadoop.apache.org>; Fri,  1 Oct 2010 21:27:23 -0700 (PDT)
+X-AuditID: 11807137-b7b43ae00000547d-60-4ca6b4aa26f9
+Received: from [17.151.95.191] (Unknown_Domain [17.151.95.191])
+	(using TLS with cipher AES128-SHA (AES128-SHA/128 bits))
+	(Client did not present a certificate)
+	by relay16.apple.com (Apple SCV relay) with SMTP id 39.69.21629.BA4B6AC4; Fri,  1 Oct 2010 21:27:23 -0700 (PDT)
+From: rahul <rmalviya@apple.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 1 Oct 2010 21:27:22 -0700
+Subject: Total Space Available on Hadoop Cluster Or Hadoop version of "df".
+To: general@hadoop.apache.org
+Message-Id: <1C4C43FE-05F2-464B-9F04-AC972988C326@apple.com>
+Mime-Version: 1.0 (Apple Message framework v1081)
+X-Mailer: Apple Mail (2.1081)
+X-Brightmail-Tracker: AAAAAA==
+
+Hi,
+
+I am using Hadoop 0.20.2 version for data processing by setting up =
+Hadoop Cluster on two nodes.=20
+
+And I am continuously adding more space to the nodes.
+
+Can some body let me know how to get the total space available on the =
+hadoop cluster using command line.
+
+or=20
+
+Hadoop version "df", Unix command.
+
+Any input is helpful.
+
+Thanks
+Rahul=
+
+From general-return-2135-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Sat Oct 02 06:14:59 2010
+Return-Path: <general-return-2135-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 12845 invoked from network); 2 Oct 2010 06:14:59 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 2 Oct 2010 06:14:59 -0000
+Received: (qmail 43982 invoked by uid 500); 2 Oct 2010 06:14:58 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 43504 invoked by uid 500); 2 Oct 2010 06:14:54 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 43496 invoked by uid 99); 2 Oct 2010 06:14:53 -0000
+Received: from athena.apache.org (HELO athena.apache.org) (140.211.11.136)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sat, 02 Oct 2010 06:14:53 +0000
+X-ASF-Spam-Status: No, hits=-0.0 required=10.0
+	tests=SPF_PASS
+X-Spam-Check-By: apache.org
+Received-SPF: pass (athena.apache.org: domain of glenn.gore@melbourneit.com.au designates 203.147.157.18 as permitted sender)
+Received: from [203.147.157.18] (HELO bne3-0002mri.server-mail.com) (203.147.157.18)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sat, 02 Oct 2010 06:14:46 +0000
+Received: from wic002mz.server-mail.com (wic002mz.server-mail.com [210.247.173.2])
+	by bne3-0002mri.server-mail.com (Postfix) with ESMTP id A9B88118009
+	for <general@hadoop.apache.org>; Sat,  2 Oct 2010 16:14:21 +1000 (EST)
+Received: from wic002mitef.messaging.mit ([172.31.0.12])
+	by wic002mz.server-mail.com with -
+	id DiE91f0070FY6JL3NiEM2e; Sat, 02 Oct 2010 16:14:21 +1000
+Received: from WIC001MITEBCLV1.messaging.mit ([172.31.0.20]) by wic002mitef.messaging.mit with Microsoft SMTPSVC(6.0.3790.3959);
+	 Sat, 2 Oct 2010 16:14:09 +1000
+X-MimeOLE: Produced By Microsoft Exchange V6.5
+Content-class: urn:content-classes:message
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+	boundary="----_=_NextPart_001_01CB61F8.F74C3C33"
+Subject: RE: Total Space Available on Hadoop Cluster Or Hadoop version of "df".
+Date: Sat, 2 Oct 2010 16:13:18 +1000
+Message-ID: <C586A8404F8B304E807B4B8BF73B376EA600AC@WIC001MITEBCLV1.messaging.mit>
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: <C586A8404F8B304E807B4B8BF73B376EA600AC@WIC001MITEBCLV1.messaging.mit>
+Thread-Topic: Total Space Available on Hadoop Cluster Or Hadoop version of "df".
+Thread-Index: Acth6jNxZ+WCuCqDS0Sxho1TgErmUAADrR6s
+References: <1C4C43FE-05F2-464B-9F04-AC972988C326@apple.com>
+From: "Glenn Gore" <Glenn.Gore@melbourneit.com.au>
+To: <general@hadoop.apache.org>
+X-OriginalArrivalTime: 02 Oct 2010 06:14:09.0821 (UTC) FILETIME=[06C054D0:01CB61F9]
+
+------_=_NextPart_001_01CB61F8.F74C3C33
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+hadoop dfsadmin -report
+
+Regards
+
+Glenn
+
+
+-----Original Message-----
+From: rahul [mailto:rmalviya@apple.com]
+Sent: Sat 10/2/2010 2:27 PM
+To: general@hadoop.apache.org
+Subject: Total Space Available on Hadoop Cluster Or Hadoop version of =
+"df".
+=20
+Hi,
+
+I am using Hadoop 0.20.2 version for data processing by setting up =
+Hadoop Cluster on two nodes.=20
+
+And I am continuously adding more space to the nodes.
+
+Can some body let me know how to get the total space available on the =
+hadoop cluster using command line.
+
+or=20
+
+Hadoop version "df", Unix command.
+
+Any input is helpful.
+
+Thanks
+Rahul
+
+
+------_=_NextPart_001_01CB61F8.F74C3C33--
+
+From general-return-2136-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Sat Oct 02 12:13:21 2010
+Return-Path: <general-return-2136-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 83142 invoked from network); 2 Oct 2010 12:13:21 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 2 Oct 2010 12:13:21 -0000
+Received: (qmail 85826 invoked by uid 500); 2 Oct 2010 12:13:20 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 85361 invoked by uid 500); 2 Oct 2010 12:13:17 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 85353 invoked by uid 99); 2 Oct 2010 12:13:16 -0000
+Received: from athena.apache.org (HELO athena.apache.org) (140.211.11.136)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sat, 02 Oct 2010 12:13:16 +0000
+X-ASF-Spam-Status: No, hits=2.2 required=10.0
+	tests=FREEMAIL_FROM,HTML_MESSAGE,RCVD_IN_DNSWL_NONE,SPF_PASS,T_TO_NO_BRKTS_FREEMAIL
+X-Spam-Check-By: apache.org
+Received-SPF: pass (athena.apache.org: domain of palmercliff@gmail.com designates 74.125.82.176 as permitted sender)
+Received: from [74.125.82.176] (HELO mail-wy0-f176.google.com) (74.125.82.176)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sat, 02 Oct 2010 12:13:10 +0000
+Received: by wye20 with SMTP id 20so720732wye.35
+        for <general@hadoop.apache.org>; Sat, 02 Oct 2010 05:12:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:mime-version:received:received:in-reply-to
+         :references:date:message-id:subject:from:to:content-type;
+        bh=g1iODifIfhHpJepOL44Y5fz2VMttuP1gkcN0H7lXpsc=;
+        b=YfgIFtP9igCK1YjCoKFJXkae5XcmHBY+Kf7j4txrHyeaR4i8Y9dKzf1FWILqv7VINM
+         QtcNfCauyMbQO8/d97ELxPPYG63Cc3INxUdN+7jVjDrnTY4iZmImzR3VgT6O15eGLKNL
+         0yHYMWeJuLqQjS1en+j+pjv7DG+csjAqm598s=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=mime-version:in-reply-to:references:date:message-id:subject:from:to
+         :content-type;
+        b=ems/kYOVy/gqXvld04rTCFAtxW+K4wVN+401ukhgRETroGgaOIQByF7btw4kIRrxqn
+         /bBnXgFdFgLUN3V9Cye04XSnR8XRkCR33vD+mOHNdyFIcQJN/A2OBIcx+XabNIgHTFGw
+         mlx4za301RNvH7b0HvSvl9BCL0FN0pRFIxdrM=
+MIME-Version: 1.0
+Received: by 10.216.11.205 with SMTP id 55mr5583702wex.51.1286021568974; Sat,
+ 02 Oct 2010 05:12:48 -0700 (PDT)
+Received: by 10.216.79.15 with HTTP; Sat, 2 Oct 2010 05:12:48 -0700 (PDT)
+In-Reply-To: <AANLkTin6ZUrWYUscAXmq0bOG8mWA35xcAfvLD-jYVzwu@mail.gmail.com>
+References: <AANLkTin6ZUrWYUscAXmq0bOG8mWA35xcAfvLD-jYVzwu@mail.gmail.com>
+Date: Sat, 2 Oct 2010 08:12:48 -0400
+Message-ID: <AANLkTimtEM4yzQSC5F16j4r0eqd0MeDb+7FF3FT1v3Yk@mail.gmail.com>
+Subject: Re: Is it possible write directly to datanode's?
+From: cliff palmer <palmercliff@gmail.com>
+To: general@hadoop.apache.org
+Content-Type: multipart/alternative; boundary=0016364d2cbdcad04a0491a13add
+
+--0016364d2cbdcad04a0491a13add
+Content-Type: text/plain; charset=ISO-8859-1
+
+Marcos, NFS will let you write almost anywhere.....
+
+On Fri, Oct 1, 2010 at 11:06 AM, Marcos Pinto <marcoscba@gmail.com> wrote:
+
+> Hi guys, I gotta a question and I really would appreciate some help,
+> suggestion, or advices.
+> Is it possible write directly to the datanode's and eliminate the
+> bottleneck
+> to write into HDFS?
+> for example: I gotta 40 writers and I writes th data direct to namenode, i
+> was wondering if it would become a bottleneck so I would like to know
+> if it is possible to write the data direct to the datanode's.
+> I've read that Hadoop doesnt support multiple writes so how can we deal
+> with
+> big cluster? I mean I am really going to have this bottleneck???
+>
+> Thanks in advanced.
+>
+
+--0016364d2cbdcad04a0491a13add--
+
+From general-return-2137-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Sat Oct 02 14:39:43 2010
+Return-Path: <general-return-2137-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 19848 invoked from network); 2 Oct 2010 14:39:42 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 2 Oct 2010 14:39:42 -0000
+Received: (qmail 49915 invoked by uid 500); 2 Oct 2010 14:39:41 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 49385 invoked by uid 500); 2 Oct 2010 14:39:38 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 49377 invoked by uid 99); 2 Oct 2010 14:39:36 -0000
+Received: from nike.apache.org (HELO nike.apache.org) (192.87.106.230)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sat, 02 Oct 2010 14:39:36 +0000
+X-ASF-Spam-Status: No, hits=2.2 required=10.0
+	tests=FREEMAIL_FROM,HTML_MESSAGE,RCVD_IN_DNSWL_NONE,SPF_PASS,T_TO_NO_BRKTS_FREEMAIL
+X-Spam-Check-By: apache.org
+Received-SPF: pass (nike.apache.org: domain of marcoscba@gmail.com designates 74.125.82.48 as permitted sender)
+Received: from [74.125.82.48] (HELO mail-ww0-f48.google.com) (74.125.82.48)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sat, 02 Oct 2010 14:39:30 +0000
+Received: by wwb22 with SMTP id 22so4535615wwb.29
+        for <general@hadoop.apache.org>; Sat, 02 Oct 2010 07:39:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:mime-version:received:received:in-reply-to
+         :references:date:message-id:subject:from:to:content-type;
+        bh=SDhW64ZvG2fdEpbYobNL/QYcKgLpChxjzX9AvvwA4pU=;
+        b=e4kYcOmheZ47OBdZbGPlpCmo3Hjc0b8u991SMxrCARJavNGVgLHW54HaXoWVqoSF1o
+         9e+EbN9NXA89+sXRh+bDfpz+KGo3mRlkfvXUNCAq1ulFkXMWJGY+SZ7NrJ4C+JBUcAO3
+         Gn92YtJT7mGtJDcvSEO57WKCIUoeDndLfCrrc=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=mime-version:in-reply-to:references:date:message-id:subject:from:to
+         :content-type;
+        b=fY3CVUVHwAyRV5kRZar9jFFhDDVktCAiEM97spEEhEzbFGbS9NCX5ZXVcfcKS+vbuj
+         1xxL88eMJXfTiBIzPx19SoI5luREqWxhUP48QxrcP1uFRkK24RxcMkf7zF9PsKYvKimN
+         gfCQ4qBCOW/n2B+fM/3B8/sL35cjxC07RUo1w=
+MIME-Version: 1.0
+Received: by 10.216.184.19 with SMTP id r19mr5709718wem.36.1286030349700; Sat,
+ 02 Oct 2010 07:39:09 -0700 (PDT)
+Received: by 10.216.51.145 with HTTP; Sat, 2 Oct 2010 07:39:09 -0700 (PDT)
+In-Reply-To: <C586A8404F8B304E807B4B8BF73B376EA600AC@WIC001MITEBCLV1.messaging.mit>
+References: <1C4C43FE-05F2-464B-9F04-AC972988C326@apple.com>
+	<C586A8404F8B304E807B4B8BF73B376EA600AC@WIC001MITEBCLV1.messaging.mit>
+Date: Sat, 2 Oct 2010 10:39:09 -0400
+Message-ID: <AANLkTikT3H2y_EJ-tVgPvYjSVN7NouHvFTXXYR5vi044@mail.gmail.com>
+Subject: Re: Total Space Available on Hadoop Cluster Or Hadoop version of "df".
+From: Marcos Pinto <marcoscba@gmail.com>
+To: general@hadoop.apache.org
+Content-Type: multipart/alternative; boundary=0016e64ea56a2a0d6a0491a3460c
+X-Virus-Checked: Checked by ClamAV on apache.org
+
+--0016e64ea56a2a0d6a0491a3460c
+Content-Type: text/plain; charset=ISO-8859-1
+
+I gotte the same problem, I remember it was something realted to user's
+partition.
+for example I created hadoop user so HDFS took the closest partition to
+user.
+I dont remenber exaclty but it was something like that. I hope it helps u in
+someway.
+
+On Sat, Oct 2, 2010 at 2:13 AM, Glenn Gore <Glenn.Gore@melbourneit.com.au>wrote:
+
+> hadoop dfsadmin -report
+>
+> Regards
+>
+> Glenn
+>
+>
+> -----Original Message-----
+> From: rahul [mailto:rmalviya@apple.com]
+> Sent: Sat 10/2/2010 2:27 PM
+> To: general@hadoop.apache.org
+> Subject: Total Space Available on Hadoop Cluster Or Hadoop version of "df".
+>
+> Hi,
+>
+> I am using Hadoop 0.20.2 version for data processing by setting up Hadoop
+> Cluster on two nodes.
+>
+> And I am continuously adding more space to the nodes.
+>
+> Can some body let me know how to get the total space available on the
+> hadoop cluster using command line.
+>
+> or
+>
+> Hadoop version "df", Unix command.
+>
+> Any input is helpful.
+>
+> Thanks
+> Rahul
+>
+>
+
+--0016e64ea56a2a0d6a0491a3460c--
+
+From general-return-2138-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Sat Oct 02 16:53:13 2010
+Return-Path: <general-return-2138-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 55594 invoked from network); 2 Oct 2010 16:53:13 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 2 Oct 2010 16:53:13 -0000
+Received: (qmail 29035 invoked by uid 500); 2 Oct 2010 16:53:12 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 28907 invoked by uid 500); 2 Oct 2010 16:53:11 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 28899 invoked by uid 99); 2 Oct 2010 16:53:11 -0000
+Received: from athena.apache.org (HELO athena.apache.org) (140.211.11.136)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sat, 02 Oct 2010 16:53:11 +0000
+X-ASF-Spam-Status: No, hits=-2.3 required=10.0
+	tests=RCVD_IN_DNSWL_MED,SPF_PASS
+X-Spam-Check-By: apache.org
+Received-SPF: pass (athena.apache.org: domain of rmalviya@apple.com designates 17.254.13.23 as permitted sender)
+Received: from [17.254.13.23] (HELO mail-out4.apple.com) (17.254.13.23)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sat, 02 Oct 2010 16:53:04 +0000
+Received: from relay15.apple.com (relay15.apple.com [17.128.113.54])
+	by mail-out4.apple.com (Postfix) with ESMTP id B1211B353051
+	for <general@hadoop.apache.org>; Sat,  2 Oct 2010 09:52:43 -0700 (PDT)
+X-AuditID: 11807136-b7b3eae0000066cf-f5-4ca7635bc402
+Received: from [17.151.77.246] (Unknown_Domain [17.151.77.246])
+	(using TLS with cipher AES128-SHA (AES128-SHA/128 bits))
+	(Client did not present a certificate)
+	by relay15.apple.com (Apple SCV relay) with SMTP id 53.6C.26319.B5367AC4; Sat,  2 Oct 2010 09:52:43 -0700 (PDT)
+Subject: Re: Total Space Available on Hadoop Cluster Or Hadoop version of "df".
+Mime-Version: 1.0 (Apple Message framework v1081)
+Content-Type: text/plain; charset=us-ascii
+From: rahul <rmalviya@apple.com>
+In-Reply-To: <AANLkTikT3H2y_EJ-tVgPvYjSVN7NouHvFTXXYR5vi044@mail.gmail.com>
+Date: Sat, 2 Oct 2010 09:52:42 -0700
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <4DDC93DB-A7B8-400C-9618-F72E3125BD3B@apple.com>
+References: <1C4C43FE-05F2-464B-9F04-AC972988C326@apple.com> <C586A8404F8B304E807B4B8BF73B376EA600AC@WIC001MITEBCLV1.messaging.mit> <AANLkTikT3H2y_EJ-tVgPvYjSVN7NouHvFTXXYR5vi044@mail.gmail.com>
+To: general@hadoop.apache.org
+X-Mailer: Apple Mail (2.1081)
+X-Brightmail-Tracker: AAAAAA==
+
+Hi Marcos,
+
+Same thing is happening for me as well.=20
+
+I have multiple disks mounted to my system but by default when i format =
+it took the nearest/ disk in which hadoop binary is present.
+
+Is there a way in which I can format all the drives mounted to my system =
+?
+
+So can we control in some way the drives or the places which we want to =
+format for hdfs?
+
+Thanks,
+Rahul
+
+On Oct 2, 2010, at 7:39 AM, Marcos Pinto wrote:
+
+> I gotte the same problem, I remember it was something realted to =
+user's
+> partition.
+> for example I created hadoop user so HDFS took the closest partition =
+to
+> user.
+> I dont remenber exaclty but it was something like that. I hope it =
+helps u in
+> someway.
+>=20
+> On Sat, Oct 2, 2010 at 2:13 AM, Glenn Gore =
+<Glenn.Gore@melbourneit.com.au>wrote:
+>=20
+>> hadoop dfsadmin -report
+>>=20
+>> Regards
+>>=20
+>> Glenn
+>>=20
+>>=20
+>> -----Original Message-----
+>> From: rahul [mailto:rmalviya@apple.com]
+>> Sent: Sat 10/2/2010 2:27 PM
+>> To: general@hadoop.apache.org
+>> Subject: Total Space Available on Hadoop Cluster Or Hadoop version of =
+"df".
+>>=20
+>> Hi,
+>>=20
+>> I am using Hadoop 0.20.2 version for data processing by setting up =
+Hadoop
+>> Cluster on two nodes.
+>>=20
+>> And I am continuously adding more space to the nodes.
+>>=20
+>> Can some body let me know how to get the total space available on the
+>> hadoop cluster using command line.
+>>=20
+>> or
+>>=20
+>> Hadoop version "df", Unix command.
+>>=20
+>> Any input is helpful.
+>>=20
+>> Thanks
+>> Rahul
+>>=20
+>>=20
+
+
+From general-return-2139-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Sat Oct 02 16:55:32 2010
+Return-Path: <general-return-2139-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 55791 invoked from network); 2 Oct 2010 16:55:32 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 2 Oct 2010 16:55:32 -0000
+Received: (qmail 30385 invoked by uid 500); 2 Oct 2010 16:55:30 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 30286 invoked by uid 500); 2 Oct 2010 16:55:30 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 30278 invoked by uid 99); 2 Oct 2010 16:55:30 -0000
+Received: from nike.apache.org (HELO nike.apache.org) (192.87.106.230)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sat, 02 Oct 2010 16:55:30 +0000
+X-ASF-Spam-Status: No, hits=-2.3 required=10.0
+	tests=RCVD_IN_DNSWL_MED,SPF_PASS
+X-Spam-Check-By: apache.org
+Received-SPF: pass (nike.apache.org: domain of rmalviya@apple.com designates 17.254.13.23 as permitted sender)
+Received: from [17.254.13.23] (HELO mail-out4.apple.com) (17.254.13.23)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sat, 02 Oct 2010 16:55:20 +0000
+Received: from relay13.apple.com (relay13.apple.com [17.128.113.29])
+	by mail-out4.apple.com (Postfix) with ESMTP id E7F5CB35319A
+	for <general@hadoop.apache.org>; Sat,  2 Oct 2010 09:54:59 -0700 (PDT)
+X-AuditID: 1180711d-b7b8eae0000035ac-b0-4ca763e38c32
+Received: from [17.151.77.246] (Unknown_Domain [17.151.77.246])
+	(using TLS with cipher AES128-SHA (AES128-SHA/128 bits))
+	(Client did not present a certificate)
+	by relay13.apple.com (Apple SCV relay) with SMTP id 4F.27.13740.3E367AC4; Sat,  2 Oct 2010 09:54:59 -0700 (PDT)
+Subject: Re: Total Space Available on Hadoop Cluster Or Hadoop version of "df".
+Mime-Version: 1.0 (Apple Message framework v1081)
+Content-Type: text/plain; charset=us-ascii
+From: rahul <rmalviya@apple.com>
+In-Reply-To: <C586A8404F8B304E807B4B8BF73B376EA600AC@WIC001MITEBCLV1.messaging.mit>
+Date: Sat, 2 Oct 2010 09:54:59 -0700
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <F5AFC2C6-70C6-4504-A781-A9C910E0FB98@apple.com>
+References: <1C4C43FE-05F2-464B-9F04-AC972988C326@apple.com> <C586A8404F8B304E807B4B8BF73B376EA600AC@WIC001MITEBCLV1.messaging.mit>
+To: general@hadoop.apache.org
+X-Mailer: Apple Mail (2.1081)
+X-Brightmail-Tracker: AAAAAA==
+X-Virus-Checked: Checked by ClamAV on apache.org
+
+Thanks Glenn
+
+On Oct 1, 2010, at 11:13 PM, Glenn Gore wrote:
+
+> hadoop dfsadmin -report
+>=20
+> Regards
+>=20
+> Glenn
+>=20
+>=20
+> -----Original Message-----
+> From: rahul [mailto:rmalviya@apple.com]
+> Sent: Sat 10/2/2010 2:27 PM
+> To: general@hadoop.apache.org
+> Subject: Total Space Available on Hadoop Cluster Or Hadoop version of =
+"df".
+>=20
+> Hi,
+>=20
+> I am using Hadoop 0.20.2 version for data processing by setting up =
+Hadoop Cluster on two nodes.=20
+>=20
+> And I am continuously adding more space to the nodes.
+>=20
+> Can some body let me know how to get the total space available on the =
+hadoop cluster using command line.
+>=20
+> or=20
+>=20
+> Hadoop version "df", Unix command.
+>=20
+> Any input is helpful.
+>=20
+> Thanks
+> Rahul
+>=20
+
+
+From general-return-2140-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Sat Oct 02 18:58:21 2010
+Return-Path: <general-return-2140-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 1956 invoked from network); 2 Oct 2010 18:58:21 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 2 Oct 2010 18:58:21 -0000
+Received: (qmail 45748 invoked by uid 500); 2 Oct 2010 18:58:19 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 45683 invoked by uid 500); 2 Oct 2010 18:58:19 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 45675 invoked by uid 99); 2 Oct 2010 18:58:19 -0000
+Received: from nike.apache.org (HELO nike.apache.org) (192.87.106.230)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sat, 02 Oct 2010 18:58:19 +0000
+X-ASF-Spam-Status: No, hits=0.0 required=10.0
+	tests=FREEMAIL_FROM,RCVD_IN_DNSWL_NONE,SPF_PASS,T_TO_NO_BRKTS_FREEMAIL
+X-Spam-Check-By: apache.org
+Received-SPF: pass (nike.apache.org: domain of ryanobjc@gmail.com designates 209.85.214.176 as permitted sender)
+Received: from [209.85.214.176] (HELO mail-iw0-f176.google.com) (209.85.214.176)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sat, 02 Oct 2010 18:58:11 +0000
+Received: by iwn6 with SMTP id 6so4126577iwn.35
+        for <general@hadoop.apache.org>; Sat, 02 Oct 2010 11:57:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:mime-version:received:received:in-reply-to
+         :references:date:message-id:subject:from:to:content-type;
+        bh=JDDm6S3GhrhpnUyTGo1CB+ueVDYPENupnxMt2Gaqf1s=;
+        b=JBIJlN5qtB4YEsEQGrbKxasMZMYnmcN5mXBtRg/NHG6iFdeKayqe7UIH3BNwS9q3Zh
+         q3XiU+Nd4vDbpBb0fHza9ErH9XmeLk4AurOc60Lt1Y1t60x/TsRECJNmo0ekMVcKPDb2
+         nUr3atzvyeLYqHNXUZn8K4J9qu95LLxhJOjww=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=mime-version:in-reply-to:references:date:message-id:subject:from:to
+         :content-type;
+        b=K6eEdFR/9tXz1FtOdNKfkC+YGSOV1udFg2iKPjV0r0iAIfgjPeWSo2Fam7B3eF3G02
+         HPFX8lMMRaRtZ06OY48yhdAZDbyAlbop/ZtWLKgExNdMvymgjWFGCtjoDi2wUNkiidWR
+         440zlQOvO9Zabb1v+rBh7Kf6xAQJ+0j3r+2cA=
+MIME-Version: 1.0
+Received: by 10.231.152.143 with SMTP id g15mr7497238ibw.76.1286045870543;
+ Sat, 02 Oct 2010 11:57:50 -0700 (PDT)
+Received: by 10.231.12.140 with HTTP; Sat, 2 Oct 2010 11:57:50 -0700 (PDT)
+In-Reply-To: <AANLkTin6ZUrWYUscAXmq0bOG8mWA35xcAfvLD-jYVzwu@mail.gmail.com>
+References: <AANLkTin6ZUrWYUscAXmq0bOG8mWA35xcAfvLD-jYVzwu@mail.gmail.com>
+Date: Sat, 2 Oct 2010 11:57:50 -0700
+Message-ID: <AANLkTik_dZctLp6Af1k9C75oJ+JhboRGZOXGsYOfwZLK@mail.gmail.com>
+Subject: Re: Is it possible write directly to datanode's?
+From: Ryan Rawson <ryanobjc@gmail.com>
+To: general@hadoop.apache.org
+Content-Type: text/plain; charset=ISO-8859-1
+X-Virus-Checked: Checked by ClamAV on apache.org
+
+I suggest you read this:
+http://hadoop.apache.org/common/docs/r0.20.0/hdfs_design.html
+
+-ryan
+
+On Fri, Oct 1, 2010 at 8:06 AM, Marcos Pinto <marcoscba@gmail.com> wrote:
+> Hi guys, I gotta a question and I really would appreciate some help,
+> suggestion, or advices.
+> Is it possible write directly to the datanode's and eliminate the bottleneck
+> to write into HDFS?
+> for example: I gotta 40 writers and I writes th data direct to namenode, i
+> was wondering if it would become a bottleneck so I would like to know
+> if it is possible to write the data direct to the datanode's.
+> I've read that Hadoop doesnt support multiple writes so how can we deal with
+> big cluster? I mean I am really going to have this bottleneck???
+>
+> Thanks in advanced.
+>
+
+From general-return-2141-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Sat Oct 02 21:16:38 2010
+Return-Path: <general-return-2141-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 34106 invoked from network); 2 Oct 2010 21:16:37 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 2 Oct 2010 21:16:37 -0000
+Received: (qmail 13839 invoked by uid 500); 2 Oct 2010 21:16:36 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 13679 invoked by uid 500); 2 Oct 2010 21:16:36 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 13671 invoked by uid 99); 2 Oct 2010 21:16:36 -0000
+Received: from athena.apache.org (HELO athena.apache.org) (140.211.11.136)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sat, 02 Oct 2010 21:16:36 +0000
+X-ASF-Spam-Status: No, hits=2.2 required=10.0
+	tests=FREEMAIL_FROM,HTML_MESSAGE,RCVD_IN_DNSWL_NONE,SPF_PASS,T_TO_NO_BRKTS_FREEMAIL
+X-Spam-Check-By: apache.org
+Received-SPF: pass (athena.apache.org: domain of marcoscba@gmail.com designates 74.125.82.176 as permitted sender)
+Received: from [74.125.82.176] (HELO mail-wy0-f176.google.com) (74.125.82.176)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sat, 02 Oct 2010 21:16:29 +0000
+Received: by wye20 with SMTP id 20so1053225wye.35
+        for <general@hadoop.apache.org>; Sat, 02 Oct 2010 14:16:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:mime-version:received:received:in-reply-to
+         :references:date:message-id:subject:from:to:content-type;
+        bh=NYATcC8ORh8kyWOzVXWk+KoRGk/Qi2TTHNYNM7tAyS0=;
+        b=EKo17oVsUfTWmf+5bNwBz7ona63hvOdU4ap56Vz3QAvF4OoE6KHh/ivoTGn5yfel5p
+         P2Rp6/76CMR51E8s333qthaAWuvrhrih9tHuYP7V/6eX8aH/tvM8sWoHh6ZBuR4/188m
+         OXqOM/cDO4mlgwakVlSsUEhbolnM1UKH5N7Nw=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=mime-version:in-reply-to:references:date:message-id:subject:from:to
+         :content-type;
+        b=mrAFsDCV6+FDT4UTGvrbEvHvZnaiiCv7NeK78B+jYEhbaEN4Z9NkAUku/SWZfujtub
+         2eCrBf290iZfs64Q8xV8a/bwO6Wg2lcBudwqC3N/8O+cr6/oE4uCJv3+KErgymXSKV4e
+         Z00TbZLADUBgcaE+sYz1TkpmbWknjrmiuz1pc=
+MIME-Version: 1.0
+Received: by 10.216.26.211 with SMTP id c61mr1139103wea.26.1286054168551; Sat,
+ 02 Oct 2010 14:16:08 -0700 (PDT)
+Received: by 10.216.51.145 with HTTP; Sat, 2 Oct 2010 14:16:08 -0700 (PDT)
+In-Reply-To: <AANLkTik_dZctLp6Af1k9C75oJ+JhboRGZOXGsYOfwZLK@mail.gmail.com>
+References: <AANLkTin6ZUrWYUscAXmq0bOG8mWA35xcAfvLD-jYVzwu@mail.gmail.com>
+	<AANLkTik_dZctLp6Af1k9C75oJ+JhboRGZOXGsYOfwZLK@mail.gmail.com>
+Date: Sat, 2 Oct 2010 17:16:08 -0400
+Message-ID: <AANLkTi=+r_qR093O=O0+2C=rRfLsoJRz=x5AWuRKgHoF@mail.gmail.com>
+Subject: Re: Is it possible write directly to datanode's?
+From: Marcos Pinto <marcoscba@gmail.com>
+To: general@hadoop.apache.org
+Content-Type: multipart/alternative; boundary=001636d34693e0e26e0491a8d163
+
+--001636d34693e0e26e0491a8d163
+Content-Type: text/plain; charset=ISO-8859-1
+
+Thanks Guys, I misunderstood the picture in the hadoop site. Now I know that
+the namenode says in which datanode should be written and which part of
+file. So I dont need to worry about it. Thanks.
+
+On Sat, Oct 2, 2010 at 2:57 PM, Ryan Rawson <ryanobjc@gmail.com> wrote:
+
+> I suggest you read this:
+> http://hadoop.apache.org/common/docs/r0.20.0/hdfs_design.html
+>
+> -ryan
+>
+> On Fri, Oct 1, 2010 at 8:06 AM, Marcos Pinto <marcoscba@gmail.com> wrote:
+> > Hi guys, I gotta a question and I really would appreciate some help,
+> > suggestion, or advices.
+> > Is it possible write directly to the datanode's and eliminate the
+> bottleneck
+> > to write into HDFS?
+> > for example: I gotta 40 writers and I writes th data direct to namenode,
+> i
+> > was wondering if it would become a bottleneck so I would like to know
+> > if it is possible to write the data direct to the datanode's.
+> > I've read that Hadoop doesnt support multiple writes so how can we deal
+> with
+> > big cluster? I mean I am really going to have this bottleneck???
+> >
+> > Thanks in advanced.
+> >
+>
+
+--001636d34693e0e26e0491a8d163--
+
+From general-return-2142-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Sun Oct 03 04:33:04 2010
+Return-Path: <general-return-2142-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 49113 invoked from network); 3 Oct 2010 04:33:03 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 3 Oct 2010 04:33:03 -0000
+Received: (qmail 48999 invoked by uid 500); 3 Oct 2010 04:33:02 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 48700 invoked by uid 500); 3 Oct 2010 04:32:59 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 48692 invoked by uid 99); 3 Oct 2010 04:32:58 -0000
+Received: from nike.apache.org (HELO nike.apache.org) (192.87.106.230)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sun, 03 Oct 2010 04:32:58 +0000
+X-ASF-Spam-Status: No, hits=-0.7 required=10.0
+	tests=RCVD_IN_DNSWL_LOW,SPF_PASS
+X-Spam-Check-By: apache.org
+Received-SPF: pass (nike.apache.org: domain of jgray@facebook.com designates 69.63.178.183 as permitted sender)
+Received: from [69.63.178.183] (HELO mx-out.facebook.com) (69.63.178.183)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sun, 03 Oct 2010 04:32:51 +0000
+Received: from [10.18.255.176] ([10.18.255.176:27669] helo=mail.thefacebook.com)
+	by mta015.snc1.facebook.com (envelope-from <jgray@facebook.com>)
+	(ecelerity 2.2.2.45 r(34067)) with ESMTP
+	id 13/4E-13534-E5708AC4; Sat, 02 Oct 2010 21:32:30 -0700
+Received: from SC-MBX04.TheFacebook.com ([169.254.3.231]) by
+ sc-hub03.TheFacebook.com ([fe80::1cfe:1f6b:8b35:cf7f%11]) with mapi; Sat, 2
+ Oct 2010 21:32:30 -0700
+From: Jonathan Gray <jgray@facebook.com>
+To: "general@hadoop.apache.org" <general@hadoop.apache.org>
+Subject: RE: Total Space Available on Hadoop Cluster Or Hadoop version of
+ "df".
+Thread-Topic: Total Space Available on Hadoop Cluster Or Hadoop version of
+ "df".
+Thread-Index: AQHLYeoyLan6Ia1UEk6/C4gnBUqBgQADrR6sky4TQICAACVQAIAATLFw
+Date: Sun, 3 Oct 2010 04:32:52 +0000
+Message-ID: <5A76F6CE309AD049AAF9A039A39242820F01F1CA@sc-mbx04.TheFacebook.com>
+References: <1C4C43FE-05F2-464B-9F04-AC972988C326@apple.com>
+ <C586A8404F8B304E807B4B8BF73B376EA600AC@WIC001MITEBCLV1.messaging.mit>
+ <AANLkTikT3H2y_EJ-tVgPvYjSVN7NouHvFTXXYR5vi044@mail.gmail.com>
+ <4DDC93DB-A7B8-400C-9618-F72E3125BD3B@apple.com>
+In-Reply-To: <4DDC93DB-A7B8-400C-9618-F72E3125BD3B@apple.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-Virus-Checked: Checked by ClamAV on apache.org
+
+Rahul,
+
+There is a ton of documentation available for Hadoop (including books).
+
+Best place to start is the wiki: http://wiki.apache.org/hadoop/
+
+On your specific issue, you need to configure Hadoop to tell it what direct=
+ories to store data.
+
+The configuration parameter name is 'dfs.data.dir' and you need to put in a=
+ comma-delimited list of directories to use to store data.
+
+JG
+
+> -----Original Message-----
+> From: rahul [mailto:rmalviya@apple.com]
+> Sent: Saturday, October 02, 2010 9:53 AM
+> To: general@hadoop.apache.org
+> Subject: Re: Total Space Available on Hadoop Cluster Or Hadoop version
+> of "df".
+>=20
+> Hi Marcos,
+>=20
+> Same thing is happening for me as well.
+>=20
+> I have multiple disks mounted to my system but by default when i format
+> it took the nearest/ disk in which hadoop binary is present.
+>=20
+> Is there a way in which I can format all the drives mounted to my
+> system ?
+>=20
+> So can we control in some way the drives or the places which we want to
+> format for hdfs?
+>=20
+> Thanks,
+> Rahul
+>=20
+> On Oct 2, 2010, at 7:39 AM, Marcos Pinto wrote:
+>=20
+> > I gotte the same problem, I remember it was something realted to
+> user's
+> > partition.
+> > for example I created hadoop user so HDFS took the closest partition
+> to
+> > user.
+> > I dont remenber exaclty but it was something like that. I hope it
+> helps u in
+> > someway.
+> >
+> > On Sat, Oct 2, 2010 at 2:13 AM, Glenn Gore
+> <Glenn.Gore@melbourneit.com.au>wrote:
+> >
+> >> hadoop dfsadmin -report
+> >>
+> >> Regards
+> >>
+> >> Glenn
+> >>
+> >>
+> >> -----Original Message-----
+> >> From: rahul [mailto:rmalviya@apple.com]
+> >> Sent: Sat 10/2/2010 2:27 PM
+> >> To: general@hadoop.apache.org
+> >> Subject: Total Space Available on Hadoop Cluster Or Hadoop version
+> of "df".
+> >>
+> >> Hi,
+> >>
+> >> I am using Hadoop 0.20.2 version for data processing by setting up
+> Hadoop
+> >> Cluster on two nodes.
+> >>
+> >> And I am continuously adding more space to the nodes.
+> >>
+> >> Can some body let me know how to get the total space available on
+> the
+> >> hadoop cluster using command line.
+> >>
+> >> or
+> >>
+> >> Hadoop version "df", Unix command.
+> >>
+> >> Any input is helpful.
+> >>
+> >> Thanks
+> >> Rahul
+> >>
+> >>
+
+
+From general-return-2143-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Sun Oct 03 17:58:45 2010
+Return-Path: <general-return-2143-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 21374 invoked from network); 3 Oct 2010 17:58:45 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 3 Oct 2010 17:58:45 -0000
+Received: (qmail 68961 invoked by uid 500); 3 Oct 2010 17:58:43 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 68889 invoked by uid 500); 3 Oct 2010 17:58:42 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 68881 invoked by uid 99); 3 Oct 2010 17:58:42 -0000
+Received: from athena.apache.org (HELO athena.apache.org) (140.211.11.136)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sun, 03 Oct 2010 17:58:42 +0000
+X-ASF-Spam-Status: No, hits=-2.3 required=10.0
+	tests=RCVD_IN_DNSWL_MED,SPF_PASS
+X-Spam-Check-By: apache.org
+Received-SPF: pass (athena.apache.org: domain of rmalviya@apple.com designates 17.254.13.22 as permitted sender)
+Received: from [17.254.13.22] (HELO mail-out3.apple.com) (17.254.13.22)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sun, 03 Oct 2010 17:58:35 +0000
+Received: from relay11.apple.com (relay11.apple.com [17.128.113.48])
+	by mail-out3.apple.com (Postfix) with ESMTP id CB987ACE0A17
+	for <general@hadoop.apache.org>; Sun,  3 Oct 2010 10:58:14 -0700 (PDT)
+X-AuditID: 11807130-b7cf8ae0000058d2-31-4ca8c43693b0
+Received: from [17.151.97.209] (Unknown_Domain [17.151.97.209])
+	(using TLS with cipher AES128-SHA (AES128-SHA/128 bits))
+	(Client did not present a certificate)
+	by relay11.apple.com (Apple SCV relay) with SMTP id 02.04.22738.634C8AC4; Sun,  3 Oct 2010 10:58:14 -0700 (PDT)
+Subject: Re: Total Space Available on Hadoop Cluster Or Hadoop version of "df".
+Mime-Version: 1.0 (Apple Message framework v1081)
+Content-Type: text/plain; charset=us-ascii
+From: rahul <rmalviya@apple.com>
+In-Reply-To: <5A76F6CE309AD049AAF9A039A39242820F01F1CA@sc-mbx04.TheFacebook.com>
+Date: Sun, 3 Oct 2010 10:58:13 -0700
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <1DB033BE-79E4-45DC-B4C5-046DF165CF59@apple.com>
+References: <1C4C43FE-05F2-464B-9F04-AC972988C326@apple.com> <C586A8404F8B304E807B4B8BF73B376EA600AC@WIC001MITEBCLV1.messaging.mit> <AANLkTikT3H2y_EJ-tVgPvYjSVN7NouHvFTXXYR5vi044@mail.gmail.com> <4DDC93DB-A7B8-400C-9618-F72E3125BD3B@apple.com> <5A76F6CE309AD049AAF9A039A39242820F01F1CA@sc-mbx04.TheFacebook.com>
+To: general@hadoop.apache.org
+X-Mailer: Apple Mail (2.1081)
+X-Brightmail-Tracker: AAAAAA==
+
+Thanks Jonathan,
+
+Its really of great help.
+
+Rahul
+On Oct 2, 2010, at 9:32 PM, Jonathan Gray wrote:
+
+> Rahul,
+>=20
+> There is a ton of documentation available for Hadoop (including =
+books).
+>=20
+> Best place to start is the wiki: http://wiki.apache.org/hadoop/
+>=20
+> On your specific issue, you need to configure Hadoop to tell it what =
+directories to store data.
+>=20
+> The configuration parameter name is 'dfs.data.dir' and you need to put =
+in a comma-delimited list of directories to use to store data.
+>=20
+> JG
+>=20
+>> -----Original Message-----
+>> From: rahul [mailto:rmalviya@apple.com]
+>> Sent: Saturday, October 02, 2010 9:53 AM
+>> To: general@hadoop.apache.org
+>> Subject: Re: Total Space Available on Hadoop Cluster Or Hadoop =
+version
+>> of "df".
+>>=20
+>> Hi Marcos,
+>>=20
+>> Same thing is happening for me as well.
+>>=20
+>> I have multiple disks mounted to my system but by default when i =
+format
+>> it took the nearest/ disk in which hadoop binary is present.
+>>=20
+>> Is there a way in which I can format all the drives mounted to my
+>> system ?
+>>=20
+>> So can we control in some way the drives or the places which we want =
+to
+>> format for hdfs?
+>>=20
+>> Thanks,
+>> Rahul
+>>=20
+>> On Oct 2, 2010, at 7:39 AM, Marcos Pinto wrote:
+>>=20
+>>> I gotte the same problem, I remember it was something realted to
+>> user's
+>>> partition.
+>>> for example I created hadoop user so HDFS took the closest partition
+>> to
+>>> user.
+>>> I dont remenber exaclty but it was something like that. I hope it
+>> helps u in
+>>> someway.
+>>>=20
+>>> On Sat, Oct 2, 2010 at 2:13 AM, Glenn Gore
+>> <Glenn.Gore@melbourneit.com.au>wrote:
+>>>=20
+>>>> hadoop dfsadmin -report
+>>>>=20
+>>>> Regards
+>>>>=20
+>>>> Glenn
+>>>>=20
+>>>>=20
+>>>> -----Original Message-----
+>>>> From: rahul [mailto:rmalviya@apple.com]
+>>>> Sent: Sat 10/2/2010 2:27 PM
+>>>> To: general@hadoop.apache.org
+>>>> Subject: Total Space Available on Hadoop Cluster Or Hadoop version
+>> of "df".
+>>>>=20
+>>>> Hi,
+>>>>=20
+>>>> I am using Hadoop 0.20.2 version for data processing by setting up
+>> Hadoop
+>>>> Cluster on two nodes.
+>>>>=20
+>>>> And I am continuously adding more space to the nodes.
+>>>>=20
+>>>> Can some body let me know how to get the total space available on
+>> the
+>>>> hadoop cluster using command line.
+>>>>=20
+>>>> or
+>>>>=20
+>>>> Hadoop version "df", Unix command.
+>>>>=20
+>>>> Any input is helpful.
+>>>>=20
+>>>> Thanks
+>>>> Rahul
+>>>>=20
+>>>>=20
+>=20
+
+
+From general-return-2144-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Mon Oct 04 12:49:27 2010
+Return-Path: <general-return-2144-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 5812 invoked from network); 4 Oct 2010 12:49:26 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 4 Oct 2010 12:49:26 -0000
+Received: (qmail 79341 invoked by uid 500); 4 Oct 2010 12:49:25 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 78933 invoked by uid 500); 4 Oct 2010 12:49:22 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 78925 invoked by uid 99); 4 Oct 2010 12:49:21 -0000
+Received: from nike.apache.org (HELO nike.apache.org) (192.87.106.230)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Mon, 04 Oct 2010 12:49:21 +0000
+X-ASF-Spam-Status: No, hits=2.2 required=10.0
+	tests=FREEMAIL_FROM,HTML_MESSAGE,RCVD_IN_DNSWL_NONE,SPF_PASS,T_TO_NO_BRKTS_FREEMAIL
+X-Spam-Check-By: apache.org
+Received-SPF: pass (nike.apache.org: domain of marcoscba@gmail.com designates 74.125.82.48 as permitted sender)
+Received: from [74.125.82.48] (HELO mail-ww0-f48.google.com) (74.125.82.48)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Mon, 04 Oct 2010 12:49:14 +0000
+Received: by wwb22 with SMTP id 22so6461665wwb.29
+        for <general@hadoop.apache.org>; Mon, 04 Oct 2010 05:48:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:mime-version:received:received:in-reply-to
+         :references:date:message-id:subject:from:to:content-type;
+        bh=0GDAZSZu9UfXbWkcTugxDN7x+fItTZRqYjTzODQdSI4=;
+        b=tO4ZDdolni6hcJzoiW2MRbbphqfx634hayk5jgjN9V8ReT7ScBm+G/rt8C3dC2rGaH
+         CcI8v3CM3hDSepqytAdH4e3i0ZPGMcHTlD8/Dg9FeyNgdiJj/uYzIMUp5mxWxfmymLJX
+         mX3EyDZwpLaVlVOB1yi+zE5DvFIboD81+WS2M=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=mime-version:in-reply-to:references:date:message-id:subject:from:to
+         :content-type;
+        b=RGrBcEKpjJbcmp81BhemN/eeIFhcuyQ0FkeiIppbKKsr4/aqcTvtrtEKrZiOO+eQ5/
+         d4jFJaHdl5M59BFfNY9rco1TEiSFMDsKMy2cciQiA5bhd5xOTrou63nvKoMIdIQfc2fX
+         fuvFuAvmk2vbJ6FIdr4li849qgVRMK7WXGE+g=
+MIME-Version: 1.0
+Received: by 10.216.22.70 with SMTP id s48mr5235847wes.27.1286196534197; Mon,
+ 04 Oct 2010 05:48:54 -0700 (PDT)
+Received: by 10.216.51.145 with HTTP; Mon, 4 Oct 2010 05:48:54 -0700 (PDT)
+In-Reply-To: <1DB033BE-79E4-45DC-B4C5-046DF165CF59@apple.com>
+References: <1C4C43FE-05F2-464B-9F04-AC972988C326@apple.com>
+	<C586A8404F8B304E807B4B8BF73B376EA600AC@WIC001MITEBCLV1.messaging.mit>
+	<AANLkTikT3H2y_EJ-tVgPvYjSVN7NouHvFTXXYR5vi044@mail.gmail.com>
+	<4DDC93DB-A7B8-400C-9618-F72E3125BD3B@apple.com>
+	<5A76F6CE309AD049AAF9A039A39242820F01F1CA@sc-mbx04.TheFacebook.com>
+	<1DB033BE-79E4-45DC-B4C5-046DF165CF59@apple.com>
+Date: Mon, 4 Oct 2010 09:48:54 -0300
+Message-ID: <AANLkTimoNaVwQWAiGanJwUDrxYSRGAFbxTgyiW6MV1Mr@mail.gmail.com>
+Subject: Re: Total Space Available on Hadoop Cluster Or Hadoop version of "df".
+From: Marcos Pinto <marcoscba@gmail.com>
+To: general@hadoop.apache.org
+Content-Type: multipart/alternative; boundary=0016364c72bb885e7b0491c9f73e
+X-Virus-Checked: Checked by ClamAV on apache.org
+
+--0016364c72bb885e7b0491c9f73e
+Content-Type: text/plain; charset=ISO-8859-1
+
+HDFS takes the memory available from the closest partition to your
+hadoop.tmp.dir(core-site.xml).
+I hope it helps you.
+
+
+user hadoop => /home/hadoop
+
+On Sun, Oct 3, 2010 at 2:58 PM, rahul <rmalviya@apple.com> wrote:
+
+> Thanks Jonathan,
+>
+> Its really of great help.
+>
+> Rahul
+> On Oct 2, 2010, at 9:32 PM, Jonathan Gray wrote:
+>
+> > Rahul,
+> >
+> > There is a ton of documentation available for Hadoop (including books).
+> >
+> > Best place to start is the wiki: http://wiki.apache.org/hadoop/
+> >
+> > On your specific issue, you need to configure Hadoop to tell it what
+> directories to store data.
+> >
+> > The configuration parameter name is 'dfs.data.dir' and you need to put in
+> a comma-delimited list of directories to use to store data.
+> >
+> > JG
+> >
+> >> -----Original Message-----
+> >> From: rahul [mailto:rmalviya@apple.com]
+> >> Sent: Saturday, October 02, 2010 9:53 AM
+> >> To: general@hadoop.apache.org
+> >> Subject: Re: Total Space Available on Hadoop Cluster Or Hadoop version
+> >> of "df".
+> >>
+> >> Hi Marcos,
+> >>
+> >> Same thing is happening for me as well.
+> >>
+> >> I have multiple disks mounted to my system but by default when i format
+> >> it took the nearest/ disk in which hadoop binary is present.
+> >>
+> >> Is there a way in which I can format all the drives mounted to my
+> >> system ?
+> >>
+> >> So can we control in some way the drives or the places which we want to
+> >> format for hdfs?
+> >>
+> >> Thanks,
+> >> Rahul
+> >>
+> >> On Oct 2, 2010, at 7:39 AM, Marcos Pinto wrote:
+> >>
+> >>> I gotte the same problem, I remember it was something realted to
+> >> user's
+> >>> partition.
+> >>> for example I created hadoop user so HDFS took the closest partition
+> >> to
+> >>> user.
+> >>> I dont remenber exaclty but it was something like that. I hope it
+> >> helps u in
+> >>> someway.
+> >>>
+> >>> On Sat, Oct 2, 2010 at 2:13 AM, Glenn Gore
+> >> <Glenn.Gore@melbourneit.com.au>wrote:
+> >>>
+> >>>> hadoop dfsadmin -report
+> >>>>
+> >>>> Regards
+> >>>>
+> >>>> Glenn
+> >>>>
+> >>>>
+> >>>> -----Original Message-----
+> >>>> From: rahul [mailto:rmalviya@apple.com]
+> >>>> Sent: Sat 10/2/2010 2:27 PM
+> >>>> To: general@hadoop.apache.org
+> >>>> Subject: Total Space Available on Hadoop Cluster Or Hadoop version
+> >> of "df".
+> >>>>
+> >>>> Hi,
+> >>>>
+> >>>> I am using Hadoop 0.20.2 version for data processing by setting up
+> >> Hadoop
+> >>>> Cluster on two nodes.
+> >>>>
+> >>>> And I am continuously adding more space to the nodes.
+> >>>>
+> >>>> Can some body let me know how to get the total space available on
+> >> the
+> >>>> hadoop cluster using command line.
+> >>>>
+> >>>> or
+> >>>>
+> >>>> Hadoop version "df", Unix command.
+> >>>>
+> >>>> Any input is helpful.
+> >>>>
+> >>>> Thanks
+> >>>> Rahul
+> >>>>
+> >>>>
+> >
+>
+>
+
+--0016364c72bb885e7b0491c9f73e--
+
+From general-return-2145-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Wed Oct 06 20:17:47 2010
+Return-Path: <general-return-2145-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 89350 invoked from network); 6 Oct 2010 20:17:46 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 6 Oct 2010 20:17:46 -0000
+Received: (qmail 61644 invoked by uid 500); 6 Oct 2010 20:17:45 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 61565 invoked by uid 500); 6 Oct 2010 20:17:44 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 61557 invoked by uid 99); 6 Oct 2010 20:17:44 -0000
+Received: from athena.apache.org (HELO athena.apache.org) (140.211.11.136)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 06 Oct 2010 20:17:44 +0000
+X-ASF-Spam-Status: No, hits=0.0 required=10.0
+	tests=FREEMAIL_FROM,RCVD_IN_DNSWL_NONE,SPF_PASS,T_TO_NO_BRKTS_FREEMAIL
+X-Spam-Check-By: apache.org
+Received-SPF: pass (athena.apache.org: domain of jdcryans@gmail.com designates 209.85.214.176 as permitted sender)
+Received: from [209.85.214.176] (HELO mail-iw0-f176.google.com) (209.85.214.176)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 06 Oct 2010 20:17:38 +0000
+Received: by iwn6 with SMTP id 6so10787296iwn.35
+        for <general@hadoop.apache.org>; Wed, 06 Oct 2010 13:17:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:mime-version:received:sender:received:date
+         :x-google-sender-auth:message-id:subject:from:to:content-type;
+        bh=12YPfLx4XV2yOFkMF78jRw6lcvhb8VzUdPAKG8458rU=;
+        b=M4PMAMYr+IdCbi6p3A6fHvjM/QloTn/+QZYQU06ZCLz5tzxDUJ1DrYeer4bi3hNVWo
+         Y7WhBMmOlmJG4p4Kgseq/N6/RR3GBrFKim0pU0webdA9nzY0n5mmHaxa7kpLv35fmDlm
+         NC8EtqAhNmxRnde8Jhkk6hU3TuA7KRj0y6lAw=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=mime-version:sender:date:x-google-sender-auth:message-id:subject
+         :from:to:content-type;
+        b=NGoUcfP9tLuJVDMlLCgg/vED9sFjLqyq9AFRhv5wl5mu2WPa5VWtYzxEt1xiO+oJwa
+         g+fgLs8ib3LCHD3Ja+XlDl6wFKoKdQYxd4GtJYx7UbNSNHUH56l+4zZb+gz9Lq7SbsEb
+         kWRHTY+GETqMYQEI3beZisclvn76buWngmo4g=
+MIME-Version: 1.0
+Received: by 10.231.149.140 with SMTP id t12mr14510345ibv.100.1286396237458;
+ Wed, 06 Oct 2010 13:17:17 -0700 (PDT)
+Sender: jdcryans@gmail.com
+Received: by 10.231.19.137 with HTTP; Wed, 6 Oct 2010 13:17:17 -0700 (PDT)
+Date: Wed, 6 Oct 2010 13:17:17 -0700
+X-Google-Sender-Auth: ACRzZXto3gBOzxrC-iLr_wFT94s
+Message-ID: <AANLkTinj-MOcTLZvg3k=Zha3GHwp68SvH1m3p9XSYWm=@mail.gmail.com>
+Subject: [ANN] HBase-0.89.20100924, our third 'developer release', is now
+ available for download
+From: Jean-Daniel Cryans <jdcryans@apache.org>
+To: general@hadoop.apache.org, user@hbase.apache.org
+Content-Type: text/plain; charset=ISO-8859-1
+
+The HBase Team would like to announce the availability of the third
+in our 'developer release' series, hbase-0.89.20100924.  Binary
+and source tar balls are available here:
+
+ http://www.apache.org/dyn/closer.cgi/hbase/
+
+You can browse the documentation here:
+
+ http://hbase.apache.org/docs/r0.89.20100924/
+
+This release contains a rollback of some features that were added to
+the master in 0726 that made it more unstable, but also contains about
+40 fixes for bugs (including more reliable region server failovers)
+and performance improvements.
+
+Our 'developer releases' are for those who can tolerate risk and who
+are willing to give feedback in advance of our next major release.
+We're not making any guarantees that this is bug free. Its definitely
+not for production deploys.  See
+http://wiki.apache.org/hadoop/Hbase/HBaseVersions for more on the new
+hbase versoning and our developer releases series. Also, please have a
+look at the KNOWN_ISSUES.txt file next to the tar balls for critical
+issues you need to be aware of.
+
+Thanks to all who contributed to this release.
+
+Yours,
+
+The HBase Team
+
+From general-return-2146-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Fri Oct 08 20:01:44 2010
+Return-Path: <general-return-2146-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 1269 invoked from network); 8 Oct 2010 20:01:43 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 8 Oct 2010 20:01:43 -0000
+Received: (qmail 62587 invoked by uid 500); 8 Oct 2010 20:01:42 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 62504 invoked by uid 500); 8 Oct 2010 20:01:41 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 62496 invoked by uid 99); 8 Oct 2010 20:01:41 -0000
+Received: from nike.apache.org (HELO nike.apache.org) (192.87.106.230)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Fri, 08 Oct 2010 20:01:41 +0000
+X-ASF-Spam-Status: No, hits=0.0 required=10.0
+	tests=FREEMAIL_FROM,RCVD_IN_DNSWL_NONE,SPF_PASS,T_TO_NO_BRKTS_FREEMAIL
+X-Spam-Check-By: apache.org
+Received-SPF: pass (nike.apache.org: domain of davidlary@gmail.com designates 209.85.213.48 as permitted sender)
+Received: from [209.85.213.48] (HELO mail-yw0-f48.google.com) (209.85.213.48)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Fri, 08 Oct 2010 20:01:33 +0000
+Received: by ywo32 with SMTP id 32so619032ywo.35
+        for <general@hadoop.apache.org>; Fri, 08 Oct 2010 13:01:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:received:received:from:content-type
+         :content-transfer-encoding:subject:date:message-id:cc:to
+         :mime-version:x-mailer;
+        bh=7bSlKHZ9QyMTVE8v0hie5xnJ/L27HeaayLt6jDu+HA0=;
+        b=wPI1GLGZZI628IO+N1mc8R3pMtgSnh+Avf7aBICKcP/gK9GHxr1NwRS5XgaqWSj5x/
+         iyNPQPQg93i44PKp3TwLAuCOZ+nftnEaQWy0OVLC8StPCVp5bHxnHBw8+eWY6++KsW4T
+         63jFeBpRd/IwctGyWpKmpi4KPdaQLoUaq+7ME=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=from:content-type:content-transfer-encoding:subject:date:message-id
+         :cc:to:mime-version:x-mailer;
+        b=I1wIcABGPMmjvL31hSl+p1jL4JO/GIjw3w8mAhH412lDkX646JyccLWKEFSzj/b4Yq
+         zUDmLSjVEcFqc6ky9jIBdy+9iheBn2RorT1sJm2GyHyOjijfawCK6MsW7/onkM/9KpMw
+         BnLd7facrnmNXFN+uqhjSdpoz0LV/8+ytAcRY=
+Received: by 10.236.109.44 with SMTP id r32mr6203951yhg.16.1286568072477;
+        Fri, 08 Oct 2010 13:01:12 -0700 (PDT)
+Received: from [192.168.1.174] (utdpat241007.utdallas.edu [129.110.241.7])
+        by mx.google.com with ESMTPS id m25sm2646895yha.43.2010.10.08.13.01.11
+        (version=TLSv1/SSLv3 cipher=RC4-MD5);
+        Fri, 08 Oct 2010 13:01:11 -0700 (PDT)
+From: David Lary <davidlary@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+Subject: DFS error 
+Date: Fri, 8 Oct 2010 15:01:09 -0500
+Message-Id: <3C526026-7FFD-4E20-819B-58DE5738B577@gmail.com>
+Cc: David Lary <davidlary@gmail.com>
+To: general@hadoop.apache.org
+Mime-Version: 1.0 (Apple Message framework v1081)
+X-Mailer: Apple Mail (2.1081)
+X-Virus-Checked: Checked by ClamAV on apache.org
+
+Please can someone help.
+
+Tried to set up pseudo-distributed mode for DFS. When I do start-dfs.sh =
+I get the error message below, and am not sure what it means. Any help =
+would be most appreciated.
+
+Thanks
+
+David
+
+The conf/hdfs-site.xml file contains:
+<configuration>
+	<property>
+		<name>fs.defaults.name</name>
+		<value>hdfs://localhost:8020</value>
+	</property>
+</configuration>
+
+
+
+$ start-dfs.sh
+starting namenode, logging to =
+/Users/davidlary/hadoop-0.20.2/bin/../logs/hadoop-davidlary-namenode-129.1=
+10.31.40.out
+localhost: starting datanode, logging to =
+/Users/davidlary/hadoop-0.20.2/bin/../logs/hadoop-davidlary-datanode-129.1=
+10.31.40.out
+localhost: starting secondarynamenode, logging to =
+/Users/davidlary/hadoop-0.20.2/bin/../logs/hadoop-davidlary-secondarynamen=
+ode-129.110.31.40.out
+localhost: Exception in thread "main" java.lang.NullPointerException
+localhost: 	at =
+org.apache.hadoop.net.NetUtils.createSocketAddr(NetUtils.java:134)
+localhost: 	at =
+org.apache.hadoop.hdfs.server.namenode.NameNode.getAddress(NameNode.java:1=
+56)
+localhost: 	at =
+org.apache.hadoop.hdfs.server.namenode.NameNode.getAddress(NameNode.java:1=
+60)
+localhost: 	at =
+org.apache.hadoop.hdfs.server.namenode.SecondaryNameNode.initialize(Second=
+aryNameNode.java:131)
+localhost: 	at =
+org.apache.hadoop.hdfs.server.namenode.SecondaryNameNode.<init>(SecondaryN=
+ameNode.java:115)
+localhost: 	at =
+org.apache.hadoop.hdfs.server.namenode.SecondaryNameNode.main(SecondaryNam=
+eNode.java:469)
+
+
+
+
+From general-return-2147-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Sat Oct 09 11:15:19 2010
+Return-Path: <general-return-2147-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 34617 invoked from network); 9 Oct 2010 11:15:19 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 9 Oct 2010 11:15:19 -0000
+Received: (qmail 32471 invoked by uid 500); 9 Oct 2010 11:15:17 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 32305 invoked by uid 500); 9 Oct 2010 11:15:15 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 32297 invoked by uid 99); 9 Oct 2010 11:15:14 -0000
+Received: from nike.apache.org (HELO nike.apache.org) (192.87.106.230)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sat, 09 Oct 2010 11:15:14 +0000
+X-ASF-Spam-Status: No, hits=4.4 required=10.0
+	tests=FREEMAIL_ENVFROM_END_DIGIT,FREEMAIL_FROM,HTML_MESSAGE,RCVD_IN_DNSWL_NONE,SPF_PASS,T_TO_NO_BRKTS_FREEMAIL
+X-Spam-Check-By: apache.org
+Received-SPF: pass (nike.apache.org: domain of eltonsky9404@gmail.com designates 74.125.82.176 as permitted sender)
+Received: from [74.125.82.176] (HELO mail-wy0-f176.google.com) (74.125.82.176)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sat, 09 Oct 2010 11:15:07 +0000
+Received: by wyb38 with SMTP id 38so944836wyb.35
+        for <general@hadoop.apache.org>; Sat, 09 Oct 2010 04:14:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:mime-version:received:received:in-reply-to
+         :references:date:message-id:subject:from:to:content-type;
+        bh=nH/1HP5d8k9t7Tvalv4xEuUWXLRkqsm6PcLU7zWNvQg=;
+        b=FJUQZXNXaLSzF3i4gGAZy5YluIJC+ird2KHZyfS5k5fPCYwORTpZmYHbP+p3rbbPBK
+         pqzK1DgGypg66UxJj7ttOL6Jxgj58+P37y7jGYRqeoBQmr0eHFpqQoZu1B0ABP0nROzn
+         sbleExlSLP/G0V+PuDNr1dAtempbKtU4RDjcM=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=mime-version:in-reply-to:references:date:message-id:subject:from:to
+         :content-type;
+        b=HCqz7TbmFNIlUKlXpzTa+SRbAdu+ZMQl2xJ8Ol1ZLgJlUsR09lI50XFElmPThQJfZS
+         6Zja7T+iWn1Meh4rp3MVyYnbwq0PNGlJlkzxiUMiNp0eRq/MDbMznajcYZRMZmnCo1KY
+         PKmkoFK2VmKIBfJegiep7uIdS38IVqWwwmAGo=
+MIME-Version: 1.0
+Received: by 10.227.128.196 with SMTP id l4mr3641330wbs.32.1286622886784; Sat,
+ 09 Oct 2010 04:14:46 -0700 (PDT)
+Received: by 10.227.147.136 with HTTP; Sat, 9 Oct 2010 04:14:46 -0700 (PDT)
+In-Reply-To: <3C526026-7FFD-4E20-819B-58DE5738B577@gmail.com>
+References: <3C526026-7FFD-4E20-819B-58DE5738B577@gmail.com>
+Date: Sat, 9 Oct 2010 22:14:46 +1100
+Message-ID: <AANLkTi=YjmiK-0qE5M8C9_+CZay=RMCFGLr3PHKj0cBy@mail.gmail.com>
+Subject: Re: DFS error
+From: elton sky <eltonsky9404@gmail.com>
+To: general@hadoop.apache.org
+Content-Type: multipart/alternative; boundary=0016e65b400c206fe104922d3ced
+X-Virus-Checked: Checked by ClamAV on apache.org
+
+--0016e65b400c206fe104922d3ced
+Content-Type: text/plain; charset=ISO-8859-1
+
+looks like hadoop couldn't find the uri of your second name node. what's in
+your conf/master?
+
+On Sat, Oct 9, 2010 at 7:01 AM, David Lary <davidlary@gmail.com> wrote:
+
+> Please can someone help.
+>
+> Tried to set up pseudo-distributed mode for DFS. When I do start-dfs.sh I
+> get the error message below, and am not sure what it means. Any help would
+> be most appreciated.
+>
+> Thanks
+>
+> David
+>
+> The conf/hdfs-site.xml file contains:
+> <configuration>
+>        <property>
+>                <name>fs.defaults.name</name>
+>                <value>hdfs://localhost:8020</value>
+>        </property>
+> </configuration>
+>
+>
+>
+> $ start-dfs.sh
+> starting namenode, logging to
+> /Users/davidlary/hadoop-0.20.2/bin/../logs/hadoop-davidlary-namenode-129.110.31.40.out
+> localhost: starting datanode, logging to
+> /Users/davidlary/hadoop-0.20.2/bin/../logs/hadoop-davidlary-datanode-129.110.31.40.out
+> localhost: starting secondarynamenode, logging to
+> /Users/davidlary/hadoop-0.20.2/bin/../logs/hadoop-davidlary-secondarynamenode-129.110.31.40.out
+> localhost: Exception in thread "main" java.lang.NullPointerException
+> localhost:      at
+> org.apache.hadoop.net.NetUtils.createSocketAddr(NetUtils.java:134)
+> localhost:      at
+> org.apache.hadoop.hdfs.server.namenode.NameNode.getAddress(NameNode.java:156)
+> localhost:      at
+> org.apache.hadoop.hdfs.server.namenode.NameNode.getAddress(NameNode.java:160)
+> localhost:      at
+> org.apache.hadoop.hdfs.server.namenode.SecondaryNameNode.initialize(SecondaryNameNode.java:131)
+> localhost:      at
+> org.apache.hadoop.hdfs.server.namenode.SecondaryNameNode.<init>(SecondaryNameNode.java:115)
+> localhost:      at
+> org.apache.hadoop.hdfs.server.namenode.SecondaryNameNode.main(SecondaryNameNode.java:469)
+>
+>
+>
+>
+
+--0016e65b400c206fe104922d3ced--
+
+From general-return-2148-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Sun Oct 10 03:02:00 2010
+Return-Path: <general-return-2148-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 90290 invoked from network); 10 Oct 2010 03:01:59 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 10 Oct 2010 03:01:59 -0000
+Received: (qmail 36607 invoked by uid 500); 10 Oct 2010 03:01:58 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 36526 invoked by uid 500); 10 Oct 2010 03:01:55 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 36518 invoked by uid 99); 10 Oct 2010 03:01:55 -0000
+Received: from athena.apache.org (HELO athena.apache.org) (140.211.11.136)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sun, 10 Oct 2010 03:01:55 +0000
+X-ASF-Spam-Status: No, hits=0.0 required=10.0
+	tests=FREEMAIL_FROM,RCVD_IN_DNSWL_NONE,SPF_PASS
+X-Spam-Check-By: apache.org
+Received-SPF: pass (athena.apache.org: domain of davidlary@gmail.com designates 209.85.161.176 as permitted sender)
+Received: from [209.85.161.176] (HELO mail-gx0-f176.google.com) (209.85.161.176)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Sun, 10 Oct 2010 03:01:48 +0000
+Received: by gxk7 with SMTP id 7so1006887gxk.35
+        for <general@hadoop.apache.org>; Sat, 09 Oct 2010 20:01:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:received:received:subject:mime-version
+         :content-type:from:in-reply-to:date:cc:content-transfer-encoding
+         :message-id:references:to:x-mailer;
+        bh=6pBGICbX5piJE7zWRGQ4jSfKjiIOl1WQrCUhuMa2omM=;
+        b=Zf0mspWBCCS5cBpyXD9bK+Lfzdl/3LfBavxnd673Qwm3Xp4Lm45CXWALaz5dRRv1wN
+         HUPBjaRQxwsW6sE2PXqvk5V1pFKoZa5C87tg5YDYyenoML+ta0tzm+6V+viFuHrd3IjS
+         cMThHQ22/hvdKOpfKmEMVYrL+B93N++UZ9h54=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=subject:mime-version:content-type:from:in-reply-to:date:cc
+         :content-transfer-encoding:message-id:references:to:x-mailer;
+        b=v7hE4VgywvHsIzbnczAgNZyii6tYmINSU+yf5Puwalv2kaWhRYR/P0IXkklRSfzFTx
+         ePEnD7lXXx/d1mlSM3SKXf45R0eLLBEEvYrDghSzKQVyHicxsHpOU/uM/6SJ5WN3yUao
+         C3ELh4ln7la8uH+t1Zy8KIv0YvPOB6+EjWUcg=
+Received: by 10.151.27.6 with SMTP id e6mr1393056ybj.404.1286679687599;
+        Sat, 09 Oct 2010 20:01:27 -0700 (PDT)
+Received: from [10.0.1.5] (cpe-70-123-100-2.tx.res.rr.com [70.123.100.2])
+        by mx.google.com with ESMTPS id q29sm4494587yba.6.2010.10.09.20.01.26
+        (version=TLSv1/SSLv3 cipher=RC4-MD5);
+        Sat, 09 Oct 2010 20:01:26 -0700 (PDT)
+Subject: Re: DFS error
+Mime-Version: 1.0 (Apple Message framework v1081)
+Content-Type: text/plain; charset=us-ascii
+From: David Lary <davidlary@gmail.com>
+In-Reply-To: <AANLkTi=YjmiK-0qE5M8C9_+CZay=RMCFGLr3PHKj0cBy@mail.gmail.com>
+Date: Sat, 9 Oct 2010 22:01:24 -0500
+Cc: David Lary <davidlary@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <EC9F6EDD-0FDA-4F46-9B00-3761D364894F@gmail.com>
+References: <3C526026-7FFD-4E20-819B-58DE5738B577@gmail.com> <AANLkTi=YjmiK-0qE5M8C9_+CZay=RMCFGLr3PHKj0cBy@mail.gmail.com>
+To: general@hadoop.apache.org,
+ elton sky <eltonsky9404@gmail.com>
+X-Mailer: Apple Mail (2.1081)
+
+Thanks,=20
+
+conf/masters contains:
+
+localhost
+
+David
+
+On Oct 9, 2010, at 6:14 AM, elton sky wrote:
+
+> looks like hadoop couldn't find the uri of your second name node. =
+what's in
+> your conf/master?
+>=20
+> On Sat, Oct 9, 2010 at 7:01 AM, David Lary <davidlary@gmail.com> =
+wrote:
+>=20
+>> Please can someone help.
+>>=20
+>> Tried to set up pseudo-distributed mode for DFS. When I do =
+start-dfs.sh I
+>> get the error message below, and am not sure what it means. Any help =
+would
+>> be most appreciated.
+>>=20
+>> Thanks
+>>=20
+>> David
+>>=20
+>> The conf/hdfs-site.xml file contains:
+>> <configuration>
+>>       <property>
+>>               <name>fs.defaults.name</name>
+>>               <value>hdfs://localhost:8020</value>
+>>       </property>
+>> </configuration>
+>>=20
+>>=20
+>>=20
+>> $ start-dfs.sh
+>> starting namenode, logging to
+>> =
+/Users/davidlary/hadoop-0.20.2/bin/../logs/hadoop-davidlary-namenode-129.1=
+10.31.40.out
+>> localhost: starting datanode, logging to
+>> =
+/Users/davidlary/hadoop-0.20.2/bin/../logs/hadoop-davidlary-datanode-129.1=
+10.31.40.out
+>> localhost: starting secondarynamenode, logging to
+>> =
+/Users/davidlary/hadoop-0.20.2/bin/../logs/hadoop-davidlary-secondarynamen=
+ode-129.110.31.40.out
+>> localhost: Exception in thread "main" java.lang.NullPointerException
+>> localhost:      at
+>> org.apache.hadoop.net.NetUtils.createSocketAddr(NetUtils.java:134)
+>> localhost:      at
+>> =
+org.apache.hadoop.hdfs.server.namenode.NameNode.getAddress(NameNode.java:1=
+56)
+>> localhost:      at
+>> =
+org.apache.hadoop.hdfs.server.namenode.NameNode.getAddress(NameNode.java:1=
+60)
+>> localhost:      at
+>> =
+org.apache.hadoop.hdfs.server.namenode.SecondaryNameNode.initialize(Second=
+aryNameNode.java:131)
+>> localhost:      at
+>> =
+org.apache.hadoop.hdfs.server.namenode.SecondaryNameNode.<init>(SecondaryN=
+ameNode.java:115)
+>> localhost:      at
+>> =
+org.apache.hadoop.hdfs.server.namenode.SecondaryNameNode.main(SecondaryNam=
+eNode.java:469)
+>>=20
+>>=20
+>>=20
+>>=20
+
+
+From general-return-2149-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Mon Oct 11 06:38:54 2010
+Return-Path: <general-return-2149-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 74047 invoked from network); 11 Oct 2010 06:38:54 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 11 Oct 2010 06:38:54 -0000
+Received: (qmail 32911 invoked by uid 500); 11 Oct 2010 06:38:53 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 32571 invoked by uid 500); 11 Oct 2010 06:38:50 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 32563 invoked by uid 99); 11 Oct 2010 06:38:49 -0000
+Received: from athena.apache.org (HELO athena.apache.org) (140.211.11.136)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Mon, 11 Oct 2010 06:38:49 +0000
+X-ASF-Spam-Status: No, hits=3.3 required=10.0
+	tests=FREEMAIL_FROM,FROM_LOCAL_NOVOWEL,HK_RANDOM_ENVFROM,HTML_MESSAGE,RCVD_IN_DNSWL_NONE,SPF_PASS,T_TO_NO_BRKTS_FREEMAIL
+X-Spam-Check-By: apache.org
+Received-SPF: pass (athena.apache.org: domain of sssssssenator@gmail.com designates 74.125.82.176 as permitted sender)
+Received: from [74.125.82.176] (HELO mail-wy0-f176.google.com) (74.125.82.176)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Mon, 11 Oct 2010 06:38:43 +0000
+Received: by wyb38 with SMTP id 38so2283643wyb.35
+        for <general@hadoop.apache.org>; Sun, 10 Oct 2010 23:38:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:mime-version:received:received:date:message-id
+         :subject:from:to:content-type;
+        bh=RaYJKTR8F6y+0uDZgncl4ndwh7ck9Ssy2oXcqFPuzXc=;
+        b=skWwj7wAoXbTK0pIxB1wwGSR0rrmm33c4R8ea7+rDm4gaDTtCPrRep09aIB6Oh0ryb
+         rU7pldmYqOWk6Ph1/S6XziORtPrf7nSPcivOSreodX1n5YjlG/+9iPoH8N+/7dmD9CVF
+         8XlbCqbVYGQWAdELW0JSCLsGNLKrIkszpj+qs=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=mime-version:date:message-id:subject:from:to:content-type;
+        b=GWp7Kba1J2O2Ppq+A/+3K6FHi2vkJlknvFaQmm8jH75A+1vdRSAVxdK60K9YfXHEZN
+         ZMFZJV+JAbPgg7OD+jzYwXARfpOGNk3t8/Opej8JGThzO72TiZThGK4/hgwMM7IM8SlQ
+         dLXcm8gEkaE6m056xUnuyth979Mkoy6hGxZt8=
+MIME-Version: 1.0
+Received: by 10.216.238.37 with SMTP id z37mr3292248weq.26.1286779101634; Sun,
+ 10 Oct 2010 23:38:21 -0700 (PDT)
+Received: by 10.216.185.207 with HTTP; Sun, 10 Oct 2010 23:38:21 -0700 (PDT)
+Date: Mon, 11 Oct 2010 12:08:21 +0530
+Message-ID: <AANLkTi=ChkwrBMnGN-pVRw6ntxAhb2pJnP3B3W+XRvJe@mail.gmail.com>
+Subject: Task tracker failed to start
+From: vaibhav negi <sssssssenator@gmail.com>
+To: general@hadoop.apache.org
+Content-Type: multipart/mixed; boundary=001517401fa441e1700492519b7f
+
+--001517401fa441e1700492519b7f
+Content-Type: multipart/alternative; boundary=001517401fa441e1620492519b7d
+
+--001517401fa441e1620492519b7d
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hi ,
+
+I am using hadoop-0.20.2 in 2 Nodes cluster. But Tasktracker in dedicated
+datanode failed to start.
+Error i can see is :-
+
+" INFO org.apache.hadoop.metrics.jvm.JvmMetrics: Cannot initialize JVM
+Metrics with processName=TaskTracker, sessionId= - already initialized "
+
+Detailed error log is attached.
+Where is the problem?
+
+Thanks and Regards
+
+Vaibhav Negi
+
+--001517401fa441e1620492519b7d
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hi ,<br><br>I am using hadoop-0.20.2 in 2 Nodes cluster. But Tasktracker in=
+ dedicated datanode failed to start. <br>Error i can see is :- <br><br>&quo=
+t; INFO org.apache.hadoop.metrics.jvm.JvmMetrics: Cannot initialize JVM Met=
+rics with processName=3DTaskTracker, sessionId=3D - already initialized &qu=
+ot;<br>
+<br>Detailed error log is attached.<br>Where is the problem?<br><br>Thanks =
+and Regards<br><br>Vaibhav Negi<br>
+
+--001517401fa441e1620492519b7d--
+--001517401fa441e1700492519b7f--
+
+From general-return-2150-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Mon Oct 11 11:52:43 2010
+Return-Path: <general-return-2150-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 51226 invoked from network); 11 Oct 2010 11:52:42 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 11 Oct 2010 11:52:42 -0000
+Received: (qmail 12867 invoked by uid 500); 11 Oct 2010 11:52:41 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 12745 invoked by uid 500); 11 Oct 2010 11:52:37 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 12737 invoked by uid 99); 11 Oct 2010 11:52:37 -0000
+Received: from nike.apache.org (HELO nike.apache.org) (192.87.106.230)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Mon, 11 Oct 2010 11:52:37 +0000
+X-ASF-Spam-Status: No, hits=2.2 required=10.0
+	tests=FREEMAIL_FROM,HTML_MESSAGE,RCVD_IN_DNSWL_NONE,SPF_PASS,T_TO_NO_BRKTS_FREEMAIL
+X-Spam-Check-By: apache.org
+Received-SPF: pass (nike.apache.org: domain of hadoop.li@gmail.com designates 209.85.210.48 as permitted sender)
+Received: from [209.85.210.48] (HELO mail-pz0-f48.google.com) (209.85.210.48)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Mon, 11 Oct 2010 11:52:30 +0000
+Received: by pzk4 with SMTP id 4so1208896pzk.35
+        for <general@hadoop.apache.org>; Mon, 11 Oct 2010 04:52:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:mime-version:received:received:in-reply-to
+         :references:date:message-id:subject:from:to:content-type;
+        bh=N4pCFgHl4kNK9QnguiPTml7tWMDzo0gAqTbNpdLKml8=;
+        b=IMz9QP3SF3HuT2Svk5bktWOYHHDqqwiFkJuqYzbl608xJBir3VnUFObr9HUZJbKD07
+         W1pfRJd7DA0fmE8ByNJorNK/YgjXFfEj7KfsSDgi0KJyhJKqIWiPvrZVx4lCYbcZ4oGF
+         QjhURhDEbY4PIwlxM20Id9QESj8pBoUy1Pn40=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=mime-version:in-reply-to:references:date:message-id:subject:from:to
+         :content-type;
+        b=E+b9zPV+v9MLh+gi0WcGfQ0+4idWNgEXQyK6rLR7UaE1C83pIdBDOVeRXpky2TJ3Kc
+         EeC0h7HOKqNsKbJD0yUm4rlK4knLKdafqf6w7r/T5ea/DBw6VMccb0OdENaWlaIRZn9p
+         elGR52haVDPT9gTzRxsVxW7iG8GDPTLecpOro=
+MIME-Version: 1.0
+Received: by 10.142.212.9 with SMTP id k9mr2499970wfg.77.1286797928584; Mon,
+ 11 Oct 2010 04:52:08 -0700 (PDT)
+Received: by 10.142.210.7 with HTTP; Mon, 11 Oct 2010 04:52:08 -0700 (PDT)
+In-Reply-To: <EC9F6EDD-0FDA-4F46-9B00-3761D364894F@gmail.com>
+References: <3C526026-7FFD-4E20-819B-58DE5738B577@gmail.com>
+	<AANLkTi=YjmiK-0qE5M8C9_+CZay=RMCFGLr3PHKj0cBy@mail.gmail.com>
+	<EC9F6EDD-0FDA-4F46-9B00-3761D364894F@gmail.com>
+Date: Mon, 11 Oct 2010 19:52:08 +0800
+Message-ID: <AANLkTikE5H63kK_rsQYdBy5=Rizxa1V_rJmbLj2RU1Qb@mail.gmail.com>
+Subject: Re: DFS error
+From: Weiwei Li <hadoop.li@gmail.com>
+To: general@hadoop.apache.org
+Content-Type: multipart/alternative; boundary=000e0cd331ee6e5712049255fd55
+X-Virus-Checked: Checked by ClamAV on apache.org
+
+--000e0cd331ee6e5712049255fd55
+Content-Type: text/plain; charset=ISO-8859-1
+
+How about change localhost to 129.110.31.40?
+
+2010/10/10 David Lary <davidlary@gmail.com>
+
+> Thanks,
+>
+> conf/masters contains:
+>
+> localhost
+>
+> David
+>
+> On Oct 9, 2010, at 6:14 AM, elton sky wrote:
+>
+> > looks like hadoop couldn't find the uri of your second name node. what's
+> in
+> > your conf/master?
+> >
+> > On Sat, Oct 9, 2010 at 7:01 AM, David Lary <davidlary@gmail.com> wrote:
+> >
+> >> Please can someone help.
+> >>
+> >> Tried to set up pseudo-distributed mode for DFS. When I do start-dfs.sh
+> I
+> >> get the error message below, and am not sure what it means. Any help
+> would
+> >> be most appreciated.
+> >>
+> >> Thanks
+> >>
+> >> David
+> >>
+> >> The conf/hdfs-site.xml file contains:
+> >> <configuration>
+> >>       <property>
+> >>               <name>fs.defaults.name</name>
+> >>               <value>hdfs://localhost:8020</value>
+> >>       </property>
+> >> </configuration>
+> >>
+> >>
+> >>
+> >> $ start-dfs.sh
+> >> starting namenode, logging to
+> >>
+> /Users/davidlary/hadoop-0.20.2/bin/../logs/hadoop-davidlary-namenode-129.110.31.40.out
+> >> localhost: starting datanode, logging to
+> >>
+> /Users/davidlary/hadoop-0.20.2/bin/../logs/hadoop-davidlary-datanode-129.110.31.40.out
+> >> localhost: starting secondarynamenode, logging to
+> >>
+> /Users/davidlary/hadoop-0.20.2/bin/../logs/hadoop-davidlary-secondarynamenode-129.110.31.40.out
+> >> localhost: Exception in thread "main" java.lang.NullPointerException
+> >> localhost:      at
+> >> org.apache.hadoop.net.NetUtils.createSocketAddr(NetUtils.java:134)
+> >> localhost:      at
+> >>
+> org.apache.hadoop.hdfs.server.namenode.NameNode.getAddress(NameNode.java:156)
+> >> localhost:      at
+> >>
+> org.apache.hadoop.hdfs.server.namenode.NameNode.getAddress(NameNode.java:160)
+> >> localhost:      at
+> >>
+> org.apache.hadoop.hdfs.server.namenode.SecondaryNameNode.initialize(SecondaryNameNode.java:131)
+> >> localhost:      at
+> >>
+> org.apache.hadoop.hdfs.server.namenode.SecondaryNameNode.<init>(SecondaryNameNode.java:115)
+> >> localhost:      at
+> >>
+> org.apache.hadoop.hdfs.server.namenode.SecondaryNameNode.main(SecondaryNameNode.java:469)
+> >>
+> >>
+> >>
+> >>
+>
+>
+
+--000e0cd331ee6e5712049255fd55--
+
+From general-return-2151-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Mon Oct 11 12:21:31 2010
+Return-Path: <general-return-2151-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 61165 invoked from network); 11 Oct 2010 12:21:30 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 11 Oct 2010 12:21:30 -0000
+Received: (qmail 35112 invoked by uid 500); 11 Oct 2010 12:21:29 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 34680 invoked by uid 500); 11 Oct 2010 12:21:26 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 34662 invoked by uid 99); 11 Oct 2010 12:21:25 -0000
+Received: from nike.apache.org (HELO nike.apache.org) (192.87.106.230)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Mon, 11 Oct 2010 12:21:25 +0000
+X-ASF-Spam-Status: No, hits=0.0 required=10.0
+	tests=FREEMAIL_FROM,RCVD_IN_DNSWL_NONE,SPF_PASS,T_TO_NO_BRKTS_FREEMAIL
+X-Spam-Check-By: apache.org
+Received-SPF: pass (nike.apache.org: domain of magawake@gmail.com designates 209.85.213.176 as permitted sender)
+Received: from [209.85.213.176] (HELO mail-yx0-f176.google.com) (209.85.213.176)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Mon, 11 Oct 2010 12:21:18 +0000
+Received: by yxg6 with SMTP id 6so1309689yxg.35
+        for <general@hadoop.apache.org>; Mon, 11 Oct 2010 05:20:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:mime-version:received:received:date:message-id
+         :subject:from:to:content-type;
+        bh=5WwQDbJ31VPuPbkZ6xb9PukjLT/cEOsBMHfyrfh7mEI=;
+        b=UZUK2RK9kEHIk7DFq9SC0oCKIYLgGIBgnWPJi/HM8KNqk0JHpZJoKquy19E2fqtUmu
+         /+2UisEsvIG+h4jgon6IFifrSOKpaWD5egsdasOzmx/aAzBrZ6L1tuaYqbZb9OjvIJei
+         qshaR8SC252av5qezAWeqNBoI3foh4z5FHyNo=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=mime-version:date:message-id:subject:from:to:content-type;
+        b=XFPxqtHazBOh0yIoga350qxp/j7N631htYO83zrgq7itDxAbN53g5tTaz2wIFuZTtw
+         EEtYVzUEJWJPbHxg9OcHXC0lJc5B2XOTTJW2tkqsO2qhcMkeoDVgYwqEXFoivFGyQC8g
+         XXmwIbTt0RhYiNDlQdfWGVGecOczv9lvTkfvc=
+MIME-Version: 1.0
+Received: by 10.151.83.5 with SMTP id k5mr372884ybl.295.1286799656808; Mon, 11
+ Oct 2010 05:20:56 -0700 (PDT)
+Received: by 10.150.211.17 with HTTP; Mon, 11 Oct 2010 05:20:56 -0700 (PDT)
+Date: Mon, 11 Oct 2010 08:20:56 -0400
+Message-ID: <AANLkTi=bONk3wMFt918DV066RToe06gsUDbk1KBOXzH+@mail.gmail.com>
+Subject: newbie setup question
+From: Mag Gam <magawake@gmail.com>
+To: general@hadoop.apache.org
+Content-Type: text/plain; charset=UTF-8
+X-Virus-Checked: Checked by ClamAV on apache.org
+
+I am planning to setup Hadoop in our environment. We only want the
+hdfs portion and not really interested in mapreduce.
+
+I've been using,
+http://www.michael-noll.com/wiki/Running_Hadoop_On_Ubuntu_Linux_(Multi-Node_Cluster)
+to setup my cluster and so far its going well. I was wondering if
+there is any newer documentation or howto I should follow.
+
+TIA
+
+From general-return-2152-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Tue Oct 12 13:11:35 2010
+Return-Path: <general-return-2152-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 66463 invoked from network); 12 Oct 2010 13:11:34 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 12 Oct 2010 13:11:34 -0000
+Received: (qmail 68829 invoked by uid 500); 12 Oct 2010 13:11:33 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 68687 invoked by uid 500); 12 Oct 2010 13:11:31 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 68676 invoked by uid 99); 12 Oct 2010 13:11:30 -0000
+Received: from nike.apache.org (HELO nike.apache.org) (192.87.106.230)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Tue, 12 Oct 2010 13:11:30 +0000
+X-ASF-Spam-Status: No, hits=2.9 required=10.0
+	tests=HTML_MESSAGE,RCVD_IN_DNSWL_NONE,SPF_NEUTRAL
+X-Spam-Check-By: apache.org
+Received-SPF: neutral (nike.apache.org: local policy)
+Received: from [74.125.82.176] (HELO mail-wy0-f176.google.com) (74.125.82.176)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Tue, 12 Oct 2010 13:11:23 +0000
+Received: by wyb38 with SMTP id 38so3922939wyb.35
+        for <general@hadoop.apache.org>; Tue, 12 Oct 2010 06:11:03 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.216.181.84 with SMTP id k62mr6774474wem.76.1286889062842; Tue,
+ 12 Oct 2010 06:11:02 -0700 (PDT)
+Received: by 10.216.178.210 with HTTP; Tue, 12 Oct 2010 06:11:02 -0700 (PDT)
+In-Reply-To: <AANLkTi=bONk3wMFt918DV066RToe06gsUDbk1KBOXzH+@mail.gmail.com>
+References: <AANLkTi=bONk3wMFt918DV066RToe06gsUDbk1KBOXzH+@mail.gmail.com>
+Date: Tue, 12 Oct 2010 06:11:02 -0700
+Message-ID: <AANLkTikKJ_FTr95E1QLLWBnSN7Mcn3n-aMpnNDXqsp9d@mail.gmail.com>
+Subject: Re: newbie setup question
+From: Jeff Hammerbacher <hammer@cloudera.com>
+To: general@hadoop.apache.org
+Content-Type: multipart/alternative; boundary=00163642768574c15d04926b352a
+X-Virus-Checked: Checked by ClamAV on apache.org
+
+--00163642768574c15d04926b352a
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hey,
+
+To get started with the version of HDFS that's found in CDH3, see
+https://docs.cloudera.com/display/DOC/Hadoop+Installation+Documentation+for+CDH3
+.
+
+Regards,
+Jeff
+
+On Mon, Oct 11, 2010 at 5:20 AM, Mag Gam <magawake@gmail.com> wrote:
+
+> I am planning to setup Hadoop in our environment. We only want the
+> hdfs portion and not really interested in mapreduce.
+>
+> I've been using,
+>
+> http://www.michael-noll.com/wiki/Running_Hadoop_On_Ubuntu_Linux_(Multi-Node_Cluster)
+> to setup my cluster and so far its going well. I was wondering if
+> there is any newer documentation or howto I should follow.
+>
+> TIA
+>
+
+--00163642768574c15d04926b352a--
+
+From general-return-2153-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Wed Oct 13 04:01:26 2010
+Return-Path: <general-return-2153-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 50701 invoked from network); 13 Oct 2010 04:01:26 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 13 Oct 2010 04:01:26 -0000
+Received: (qmail 27695 invoked by uid 500); 13 Oct 2010 04:01:23 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 26426 invoked by uid 500); 13 Oct 2010 04:01:17 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 26403 invoked by uid 99); 13 Oct 2010 04:01:16 -0000
+Received: from athena.apache.org (HELO athena.apache.org) (140.211.11.136)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 04:01:16 +0000
+X-ASF-Spam-Status: No, hits=4.4 required=10.0
+	tests=FREEMAIL_ENVFROM_END_DIGIT,FREEMAIL_FROM,HTML_MESSAGE,SPF_PASS,T_TO_NO_BRKTS_FREEMAIL
+X-Spam-Check-By: apache.org
+Received-SPF: pass (athena.apache.org: local policy)
+Received: from [98.139.91.204] (HELO nm5-vm0.bullet.mail.sp2.yahoo.com) (98.139.91.204)
+    by apache.org (qpsmtpd/0.29) with SMTP; Wed, 13 Oct 2010 04:01:07 +0000
+Received: from [98.139.91.63] by nm5.bullet.mail.sp2.yahoo.com with NNFMP; 13 Oct 2010 04:00:46 -0000
+Received: from [98.139.91.10] by tm3.bullet.mail.sp2.yahoo.com with NNFMP; 13 Oct 2010 04:00:46 -0000
+Received: from [127.0.0.1] by omp1010.mail.sp2.yahoo.com with NNFMP; 13 Oct 2010 04:00:46 -0000
+X-Yahoo-Newman-Property: ymail-3
+X-Yahoo-Newman-Id: 205679.62479.bm@omp1010.mail.sp2.yahoo.com
+Received: (qmail 64909 invoked by uid 60001); 13 Oct 2010 04:00:45 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s1024; t=1286942445; bh=K6ESYR+xC/rzVGOgXDghXbzvNHO+fm78n/aF7Leg32U=; h=Message-ID:X-YMail-OSG:Received:X-Mailer:Date:From:Subject:To:MIME-Version:Content-Type; b=SkQ1QiHfRAWD4QwMo44ZyTxxitRo5iPaxPKM4lJATyp3qPvbyTrxp8xnLbpswQUihoK7VhLflqrz9NEEF7KztngMlKbYUtZ5yzE/5pqbGfj4H/mXNAjJGaqV4niMPznmRuhU91a1ov8YXPbwXmjjjT2T8hZbPZ//Xx0VoKPsuKs=
+DomainKey-Signature:a=rsa-sha1; q=dns; c=nofws;
+  s=s1024; d=yahoo.com;
+  h=Message-ID:X-YMail-OSG:Received:X-Mailer:Date:From:Subject:To:MIME-Version:Content-Type;
+  b=FyB63MSw4FgJeHawsnpyun+vvx4BQNh46hbJ8RmiY6UxqCqOS6oyQRzFIihqFkIXo1+YRLn+a08iCUgCmbyBxgn60Vd4R8VFIyWWaG796Eugtcbcu2wao40D1ETBHx36avISdVwJ1/MbYETN8v7Ss82DzS3jjteMmwoWmp5hixs=;
+Message-ID: <680770.64071.qm@web110202.mail.gq1.yahoo.com>
+X-YMail-OSG: Gpm4hBAVM1k98D07_uPwpM7ChWsXRna09pLb6zhfHoHYzSG
+ 2KQe.6X8alLkeVny6UmfFaySjHR90IQ.ryrNVow3J48cMVZtVB1p0dORAdRa
+ 715Xo4NLfwiKRoLvA7lU5bTqpeDMsUtYUUZJ2.bLg36NoGj4MghoFYbdNoub
+ rPk2Zh9AqNqLLvn4PwQ50lM7c6pu.CI_g5FRIXXvnAU9figElejOH1zOl6gA
+ ZqkvhMoSFd094D5ulh8YCyVCwuW4sfx7cIoCFrzJQxGqpyK.h9fcuGQ6Db0J
+ S_w4P4TP0k7uUlMnEKeTw6goY4k.z_oN9NIZp1jzbjz83gVnyyjS3ZIA-
+Received: from [71.80.224.31] by web110202.mail.gq1.yahoo.com via HTTP; Tue, 12 Oct 2010 21:00:45 PDT
+X-Mailer: YahooMailRC/504.5 YahooMailWebService/0.8.106.282862
+Date: Tue, 12 Oct 2010 21:00:45 -0700 (PDT)
+From: Roger Smith <rogersmith1711@yahoo.com>
+Subject: Mailing list for posting a job opportunity
+To: common-user@hadoop.apache.org, general@hadoop.apache.org
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="0-417116068-1286942445=:64071"
+
+--0-417116068-1286942445=:64071
+Content-Type: text/plain; charset=iso-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+I am starting a new cloud computing technology startup to develop a Hadoop-=
+based =0Asoftware for CleanTech applications and looking for a developer wi=
+th deep Hadoop =0Aexperience to join the founding team. I would like to kno=
+w if Apache has a =0Amailing list to post opportunities of such nature, one=
+ similar to Eclipse Job =0AForum mailing list. If yes, I would very much ap=
+preciate a pointer. If not, I =0Awant to gauge level of interest from this =
+community to start one (a job mailing =0Alist). =A0=A0=A0=0A=A0=0ARoger Smi=
+th
+--0-417116068-1286942445=:64071--
+
+From general-return-2154-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Wed Oct 13 04:02:32 2010
+Return-Path: <general-return-2154-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 50981 invoked from network); 13 Oct 2010 04:02:32 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 13 Oct 2010 04:02:32 -0000
+Received: (qmail 32961 invoked by uid 500); 13 Oct 2010 04:02:30 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 32038 invoked by uid 500); 13 Oct 2010 04:02:28 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 32024 invoked by uid 99); 13 Oct 2010 04:02:27 -0000
+Received: from nike.apache.org (HELO nike.apache.org) (192.87.106.230)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 04:02:27 +0000
+X-ASF-Spam-Status: No, hits=0.0 required=10.0
+	tests=FREEMAIL_FROM,RCVD_IN_DNSWL_NONE,SPF_PASS,T_TO_NO_BRKTS_FREEMAIL
+X-Spam-Check-By: apache.org
+Received-SPF: pass (nike.apache.org: domain of paliwalashish@gmail.com designates 74.125.82.176 as permitted sender)
+Received: from [74.125.82.176] (HELO mail-wy0-f176.google.com) (74.125.82.176)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 04:02:21 +0000
+Received: by wyb38 with SMTP id 38so5028328wyb.35
+        for <multiple recipients>; Tue, 12 Oct 2010 21:02:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:mime-version:received:received:in-reply-to
+         :references:date:message-id:subject:from:to:cc:content-type;
+        bh=WrLY+CAFY2Yg1dZZiBsFeioBO2XTeBk3tAnQuE78w1Q=;
+        b=RfvfklmnEb94Q3kclLNSIfRP2bMNEdt+Hu2t1QQwBXB2ugF754r1gnYPpJGXTYqxDj
+         RQDmiJYO8dy61Rv5Fw+qg0noxujc4c/xULnibS21sr/t1/6u+j4iWqcSL0zvCVQHqoow
+         037lAQgX1XOaQde3mBBRgEHn4IW2E9OkwiNT0=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=mime-version:in-reply-to:references:date:message-id:subject:from:to
+         :cc:content-type;
+        b=aobqZeiir1PuwHbNsgCGYaVhtYY2FihA6tJfbxmvAzzo0NxONd0Nm8ONAjmc2gR0RZ
+         yH/gDPFi25uGOkNObVhWUjRLVqg/E6IDlhEa4tkOgsJNw/qn+9lBbkBXWefQDeabKCMc
+         IjkST35c3Gr1Bns2Eo22lOmiuURsTWmHOrBDE=
+MIME-Version: 1.0
+Received: by 10.216.22.203 with SMTP id t53mr7689210wet.37.1286942520966; Tue,
+ 12 Oct 2010 21:02:00 -0700 (PDT)
+Received: by 10.216.73.14 with HTTP; Tue, 12 Oct 2010 21:02:00 -0700 (PDT)
+In-Reply-To: <680770.64071.qm@web110202.mail.gq1.yahoo.com>
+References: <680770.64071.qm@web110202.mail.gq1.yahoo.com>
+Date: Wed, 13 Oct 2010 09:32:00 +0530
+Message-ID: <AANLkTikBYt9Y4A2t4at0U37vPJdxUEncYbTXSas7+PEc@mail.gmail.com>
+Subject: Re: Mailing list for posting a job opportunity
+From: Ashish <paliwalashish@gmail.com>
+To: general@hadoop.apache.org
+Cc: common-user@hadoop.apache.org
+Content-Type: text/plain; charset=ISO-8859-1
+X-Virus-Checked: Checked by ClamAV on apache.org
+
+jobs@apache.org
+
+On Wed, Oct 13, 2010 at 9:30 AM, Roger Smith <rogersmith1711@yahoo.com> wrote:
+> I am starting a new cloud computing technology startup to develop a Hadoop-based
+> software for CleanTech applications and looking for a developer with deep Hadoop
+> experience to join the founding team. I would like to know if Apache has a
+> mailing list to post opportunities of such nature, one similar to Eclipse Job
+> Forum mailing list. If yes, I would very much appreciate a pointer. If not, I
+> want to gauge level of interest from this community to start one (a job mailing
+> list).
+>
+> Roger Smith
+
+
+
+-- 
+thanks
+ashish
+
+Blog: http://www.ashishpaliwal.com/blog
+My Photo Galleries: http://www.pbase.com/ashishpaliwal
+
+From general-return-2155-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Wed Oct 13 12:58:05 2010
+Return-Path: <general-return-2155-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 32858 invoked from network); 13 Oct 2010 12:58:00 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 13 Oct 2010 12:58:00 -0000
+Received: (qmail 2378 invoked by uid 500); 13 Oct 2010 12:57:59 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 1916 invoked by uid 500); 13 Oct 2010 12:57:56 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 1267 invoked by uid 99); 13 Oct 2010 12:57:54 -0000
+Received: from nike.apache.org (HELO nike.apache.org) (192.87.106.230)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 12:57:54 +0000
+X-ASF-Spam-Status: No, hits=0.0 required=10.0
+	tests=FREEMAIL_FROM,RCVD_IN_DNSWL_NONE,SPF_PASS
+X-Spam-Check-By: apache.org
+Received-SPF: pass (nike.apache.org: local policy)
+Received: from [217.72.192.221] (HELO fmmailgate01.web.de) (217.72.192.221)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 12:57:47 +0000
+Received:  from smtp04.web.de  ( [172.20.0.225])
+	by fmmailgate01.web.de (Postfix) with ESMTP id 07FC016EC84D9
+	for <general@hadoop.apache.org>; Wed, 13 Oct 2010 14:57:27 +0200 (CEST)
+Received: from [89.246.34.1] (helo=[192.168.0.58])
+	by smtp04.web.de with asmtp (WEB.DE 4.110 #24)
+	id 1P60ta-0005ky-00
+	for general@hadoop.apache.org; Wed, 13 Oct 2010 14:57:26 +0200
+User-Agent: Microsoft-Entourage/12.23.0.091001
+Date: Wed, 13 Oct 2010 14:57:25 +0200
+Subject: Architecture
+From: Andre Reiter <a.reiter@web.de>
+To: <general@hadoop.apache.org>
+Message-ID: <C8DB7955.17EB%a.reiter@web.de>
+Thread-Topic: Architecture
+Thread-Index: Actq1i6+hc039LXzJkiOs5oPzinFPA==
+Mime-version: 1.0
+Content-type: text/plain;
+	charset="US-ASCII"
+Content-transfer-encoding: 7bit
+Sender: a.reiter@web.de
+X-Sender: a.reiter@web.de
+X-Provags-ID: V01U2FsdGVkX18GXCbMHRQUIhOBAeK0UVlOe7mD4oiwI0j0QfnL
+	jS4xS0vub1PUxGmEW+NM1BO1s1QMR3QBIB9WF0A5epNU+Ex7Dl
+	AiKN+mPjQ=
+X-Virus-Checked: Checked by ClamAV on apache.org
+
+Hello everybody,
+
+i'm evaluating hadoop for a new platform.
+the application is a web based application, and the challange is to handle
+requests up to 1.000.000 times per second. this can actually be solved by
+load ballanced webservers.
+The problem now is to persist user data at real time. Let's say every
+request appends some data to the user record, i.e. 100 bytes are appended.
+The record would have an identifier placed in the cookie.
+
+The problem now is to look up the user record for every request at runtime.
+Is it possible to get the user record with the information about all former
+requests in a short time i.e. 50 ms ???
+
+i hove no experience with hadoop yet
+
+every help would be very appreciated
+thanks in advance
+
+best regards
+andre
+
+
+
+From general-return-2156-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Wed Oct 13 13:10:06 2010
+Return-Path: <general-return-2156-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 40583 invoked from network); 13 Oct 2010 13:10:05 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 13 Oct 2010 13:10:05 -0000
+Received: (qmail 18517 invoked by uid 500); 13 Oct 2010 13:10:04 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 18350 invoked by uid 500); 13 Oct 2010 13:10:01 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 18342 invoked by uid 99); 13 Oct 2010 13:10:01 -0000
+Received: from athena.apache.org (HELO athena.apache.org) (140.211.11.136)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 13:10:01 +0000
+X-ASF-Spam-Status: No, hits=2.2 required=10.0
+	tests=FREEMAIL_ENVFROM_END_DIGIT,FREEMAIL_FROM,RCVD_IN_DNSWL_NONE,SPF_PASS,T_TO_NO_BRKTS_FREEMAIL
+X-Spam-Check-By: apache.org
+Received-SPF: pass (athena.apache.org: domain of timrobertson100@gmail.com designates 209.85.215.48 as permitted sender)
+Received: from [209.85.215.48] (HELO mail-ew0-f48.google.com) (209.85.215.48)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 13:09:55 +0000
+Received: by ewy28 with SMTP id 28so1892036ewy.35
+        for <general@hadoop.apache.org>; Wed, 13 Oct 2010 06:09:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:mime-version:received:received:in-reply-to
+         :references:date:message-id:subject:from:to:content-type;
+        bh=o4IhwstMQbMGI2FT24+a2RjPZ88mr9ZSIw05XVLL36U=;
+        b=StNBa8ftXVEcmJMynL+dwh3n5RLWjaf2rvZPqUCahEDuzjVisGxyBhtLJM5NaftEH8
+         RFzNhfYA29/sUEh7i6W1vITI/Ni9looWkd3NruzS4xcNm2L2ksy6uWO2EGpg/Tp+gmVR
+         NxjcYuWsYOhuIHN6bGh5FQJ/Hkykz9ibAe5yg=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=mime-version:in-reply-to:references:date:message-id:subject:from:to
+         :content-type;
+        b=pwIt/VxsYmr0UTGZqMjn7+LoweQb0qvhMnragDo/904RfZkzdqaoK9RCBaUVCUocy/
+         1eLqwCOlNGWd1fWAUGEzwBXi2BPwxrwcli7KBMlRRNFF9t8IZ24HR5277oaBTH+W5/8r
+         uTUq9Mu37U0Qprhazi8hkjgvUMAL2onRMsrRM=
+MIME-Version: 1.0
+Received: by 10.213.19.8 with SMTP id y8mr542677eba.94.1286975373666; Wed, 13
+ Oct 2010 06:09:33 -0700 (PDT)
+Received: by 10.14.127.137 with HTTP; Wed, 13 Oct 2010 06:09:33 -0700 (PDT)
+In-Reply-To: <C8DB7955.17EB%a.reiter@web.de>
+References: <C8DB7955.17EB%a.reiter@web.de>
+Date: Wed, 13 Oct 2010 15:09:33 +0200
+Message-ID: <AANLkTikK0=epR6TupiS1Vv+3ZwxurfM5QbKDX4L341=r@mail.gmail.com>
+Subject: Re: Architecture
+From: Tim Robertson <timrobertson100@gmail.com>
+To: general@hadoop.apache.org
+Content-Type: text/plain; charset=ISO-8859-1
+
+This sounds like you should be looking to HBase.  HBase is a data
+store that builds on top of Hadoop to meet those kind of real time
+storage and retrieval requirements.
+
+HTH,
+Tim
+
+On Wed, Oct 13, 2010 at 2:57 PM, Andre Reiter <a.reiter@web.de> wrote:
+> Hello everybody,
+>
+> i'm evaluating hadoop for a new platform.
+> the application is a web based application, and the challange is to handle
+> requests up to 1.000.000 times per second. this can actually be solved by
+> load ballanced webservers.
+> The problem now is to persist user data at real time. Let's say every
+> request appends some data to the user record, i.e. 100 bytes are appended.
+> The record would have an identifier placed in the cookie.
+>
+> The problem now is to look up the user record for every request at runtime.
+> Is it possible to get the user record with the information about all former
+> requests in a short time i.e. 50 ms ???
+>
+> i hove no experience with hadoop yet
+>
+> every help would be very appreciated
+> thanks in advance
+>
+> best regards
+> andre
+>
+>
+>
+
+From general-return-2157-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Wed Oct 13 14:03:44 2010
+Return-Path: <general-return-2157-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 59297 invoked from network); 13 Oct 2010 14:03:43 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 13 Oct 2010 14:03:43 -0000
+Received: (qmail 13667 invoked by uid 500); 13 Oct 2010 14:03:42 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 13189 invoked by uid 500); 13 Oct 2010 14:03:39 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 13168 invoked by uid 99); 13 Oct 2010 14:03:38 -0000
+Received: from athena.apache.org (HELO athena.apache.org) (140.211.11.136)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 14:03:38 +0000
+X-ASF-Spam-Status: No, hits=-0.0 required=10.0
+	tests=SPF_PASS
+X-Spam-Check-By: apache.org
+Received-SPF: pass (athena.apache.org: domain of jon.creasy@announcemedia.com designates 67.192.241.160 as permitted sender)
+Received: from [67.192.241.160] (HELO smtp160.dfw.emailsrvr.com) (67.192.241.160)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 14:03:31 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by smtp16.relay.dfw1a.emailsrvr.com (SMTP Server) with ESMTP id 5D20640CEC
+	for <general@hadoop.apache.org>; Wed, 13 Oct 2010 10:03:10 -0400 (EDT)
+X-Orig-To: general@hadoop.apache.org
+X-Virus-Scanned: OK
+Received: from smtp192.mex07a.mlsrvr.com (smtp192.mex07a.mlsrvr.com [67.192.133.192])
+	by smtp16.relay.dfw1a.emailsrvr.com (SMTP Server) with ESMTPS id 2A9C740D1E;
+	Wed, 13 Oct 2010 10:03:08 -0400 (EDT)
+Received: from DFW1MBX20.mex07a.mlsrvr.com ([169.254.2.105]) by
+ 207037-HUB09.mex07a.mlsrvr.com ([192.168.1.202]) with mapi; Wed, 13 Oct 2010
+ 09:03:07 -0500
+From: Jonathan Creasy <jon.creasy@announcemedia.com>
+To: "general@hadoop.apache.org" <general@hadoop.apache.org>
+CC: "general@hadoop.apache.org" <general@hadoop.apache.org>
+Date: Wed, 13 Oct 2010 09:02:40 -0500
+Subject: Re: Architecture
+Thread-Topic: Architecture
+Thread-Index: Actq31whAvM7GV4lRdiRdVunjAYwIQ==
+Message-ID: <80D1F44F-5D35-4764-8911-94907EAEAA36@announcemedia.com>
+References: <C8DB7955.17EB%a.reiter@web.de>
+ <AANLkTikK0=epR6TupiS1Vv+3ZwxurfM5QbKDX4L341=r@mail.gmail.com>
+In-Reply-To: <AANLkTikK0=epR6TupiS1Vv+3ZwxurfM5QbKDX4L341=r@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+acceptlanguage: en-US
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Not to sound argumentative but because perhaps I have misunderstood, Hbase =
+doesn't seem well suited to realtime requests at all. Perhaps you could ela=
+borate on the architecture you would use to support this application?
+
+data starts here, goes here, this is done, it is accessed by a webserver he=
+re, etc
+
+Thank you!
+
+On Oct 13, 2010, at 8:10 AM, "Tim Robertson" <timrobertson100@gmail.com> wr=
+ote:
+
+> This sounds like you should be looking to HBase.  HBase is a data
+> store that builds on top of Hadoop to meet those kind of real time
+> storage and retrieval requirements.
+>=20
+> HTH,
+> Tim
+>=20
+> On Wed, Oct 13, 2010 at 2:57 PM, Andre Reiter <a.reiter@web.de> wrote:
+>> Hello everybody,
+>>=20
+>> i'm evaluating hadoop for a new platform.
+>> the application is a web based application, and the challange is to hand=
+le
+>> requests up to 1.000.000 times per second. this can actually be solved b=
+y
+>> load ballanced webservers.
+>> The problem now is to persist user data at real time. Let's say every
+>> request appends some data to the user record, i.e. 100 bytes are appende=
+d.
+>> The record would have an identifier placed in the cookie.
+>>=20
+>> The problem now is to look up the user record for every request at runti=
+me.
+>> Is it possible to get the user record with the information about all for=
+mer
+>> requests in a short time i.e. 50 ms ???
+>>=20
+>> i hove no experience with hadoop yet
+>>=20
+>> every help would be very appreciated
+>> thanks in advance
+>>=20
+>> best regards
+>> andre
+>>=20
+>>=20
+>>=20
+
+From general-return-2158-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Wed Oct 13 14:38:05 2010
+Return-Path: <general-return-2158-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 74264 invoked from network); 13 Oct 2010 14:38:04 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 13 Oct 2010 14:38:04 -0000
+Received: (qmail 73068 invoked by uid 500); 13 Oct 2010 14:38:03 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 72701 invoked by uid 500); 13 Oct 2010 14:38:00 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 72693 invoked by uid 99); 13 Oct 2010 14:38:00 -0000
+Received: from nike.apache.org (HELO nike.apache.org) (192.87.106.230)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 14:38:00 +0000
+X-ASF-Spam-Status: No, hits=0.0 required=10.0
+	tests=FREEMAIL_FROM,RCVD_IN_DNSWL_NONE,SPF_PASS,T_TO_NO_BRKTS_FREEMAIL
+X-Spam-Check-By: apache.org
+Received-SPF: pass (nike.apache.org: domain of lars.francke@gmail.com designates 74.125.83.48 as permitted sender)
+Received: from [74.125.83.48] (HELO mail-gw0-f48.google.com) (74.125.83.48)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 14:37:52 +0000
+Received: by gwj23 with SMTP id 23so637302gwj.35
+        for <general@hadoop.apache.org>; Wed, 13 Oct 2010 07:37:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:received:mime-version:received:in-reply-to
+         :references:from:date:message-id:subject:to:content-type;
+        bh=e19S1h+wlVY6obpdVPEGODQK9EDIFarSIuVJZqDr26Y=;
+        b=dDT+1AvxCgjTBbbLW6lTqGAMaY1eMsOqJwP2shtDlaR+/DyZzMoQ0agwgqA2hk8Mww
+         85mJr9jW4zkJKnERgnbtjSCo418BvQ4wneeNBNjD3JlxLaP8zsyEggiGxrZQy+/0FehU
+         JzvdVGM0qo3LtcI6wxcOsUf5nS0gTg2alUXes=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=mime-version:in-reply-to:references:from:date:message-id:subject:to
+         :content-type;
+        b=jYcths4RBp7RFiE0sjtbUKKFx9k0YTsHW8ZX5p9IIAqqcFEApJZEPpRO9TIBO/YlQO
+         iyfeeyXjdBk6dt202BZQTNl9e/cTqAb3oRCrIpsl6j7UDKOBqDrkhMiA+wK7Y+U5s0qe
+         QsNm2aHzDr3Aeqn0O96vSfvrg2GYUxZ0PK/ok=
+Received: by 10.150.131.16 with SMTP id e16mr1114036ybd.415.1286980649315;
+ Wed, 13 Oct 2010 07:37:29 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.150.212.20 with HTTP; Wed, 13 Oct 2010 07:36:47 -0700 (PDT)
+In-Reply-To: <80D1F44F-5D35-4764-8911-94907EAEAA36@announcemedia.com>
+References: <C8DB7955.17EB%a.reiter@web.de> <AANLkTikK0=epR6TupiS1Vv+3ZwxurfM5QbKDX4L341=r@mail.gmail.com>
+ <80D1F44F-5D35-4764-8911-94907EAEAA36@announcemedia.com>
+From: Lars Francke <lars.francke@gmail.com>
+Date: Wed, 13 Oct 2010 16:36:47 +0200
+Message-ID: <AANLkTin0s0pg==Y35oGpdinia91LU7Ea8LULrNum-Nng@mail.gmail.com>
+Subject: Re: Architecture
+To: general@hadoop.apache.org
+Content-Type: text/plain; charset=UTF-8
+X-Virus-Checked: Checked by ClamAV on apache.org
+
+> Not to sound argumentative but because perhaps I have misunderstood, Hbase doesn't seem well suited to realtime requests at all. Perhaps you could elaborate on the architecture you would use to support this application?
+
+Quite the opposite. HBase is all about realtime requests. It's
+optimized for it. Here's the description from the homepage:
+"HBase is the Hadoop database. Use it when you need random, realtime
+read/write access to your Big Data. This project's goal is the hosting
+of very large tables -- billions of rows X millions of columns -- atop
+clusters of commodity hardware.
+
+Cheers,
+Lars
+
+From general-return-2159-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Wed Oct 13 14:46:29 2010
+Return-Path: <general-return-2159-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 78179 invoked from network); 13 Oct 2010 14:46:28 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 13 Oct 2010 14:46:28 -0000
+Received: (qmail 91837 invoked by uid 500); 13 Oct 2010 14:46:27 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 91705 invoked by uid 500); 13 Oct 2010 14:46:25 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 91690 invoked by uid 99); 13 Oct 2010 14:46:24 -0000
+Received: from athena.apache.org (HELO athena.apache.org) (140.211.11.136)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 14:46:24 +0000
+X-ASF-Spam-Status: No, hits=-2000.0 required=10.0
+	tests=ALL_TRUSTED,T_RP_MATCHES_RCVD
+X-Spam-Check-By: apache.org
+Received: from [140.211.11.9] (HELO minotaur.apache.org) (140.211.11.9)
+    by apache.org (qpsmtpd/0.29) with SMTP; Wed, 13 Oct 2010 14:46:24 +0000
+Received: (qmail 78127 invoked by uid 99); 13 Oct 2010 14:46:03 -0000
+Received: from localhost.apache.org (HELO mail-bw0-f48.google.com) (127.0.0.1)
+  (smtp-auth username omalley, mechanism plain)
+  by minotaur.apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 14:46:03 +0000
+Received: by bwz5 with SMTP id 5so3171107bwz.35
+        for <multiple recipients>; Wed, 13 Oct 2010 07:46:01 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.204.131.200 with SMTP id y8mr7409433bks.107.1286981161211;
+ Wed, 13 Oct 2010 07:46:01 -0700 (PDT)
+Received: by 10.204.77.11 with HTTP; Wed, 13 Oct 2010 07:46:01 -0700 (PDT)
+In-Reply-To: <AANLkTin0s0pg==Y35oGpdinia91LU7Ea8LULrNum-Nng@mail.gmail.com>
+References: <C8DB7955.17EB%a.reiter@web.de>
+	<AANLkTikK0=epR6TupiS1Vv+3ZwxurfM5QbKDX4L341=r@mail.gmail.com>
+	<80D1F44F-5D35-4764-8911-94907EAEAA36@announcemedia.com>
+	<AANLkTin0s0pg==Y35oGpdinia91LU7Ea8LULrNum-Nng@mail.gmail.com>
+Date: Wed, 13 Oct 2010 07:46:01 -0700
+Message-ID: <AANLkTikibABvQSCkaukmV9e+yXhcJ6VgBCEpvE6uG7nD@mail.gmail.com>
+Subject: Re: Architecture
+From: "Owen O'Malley" <omalley@apache.org>
+To: common-user@hadoop.apache.org
+Content-Type: text/plain; charset=UTF-8
+
+Here is a presentation from Hadoop Summit 2009 "HBase goes Realtime"
+that gives numbers for latency with HBase. Redirecting to common-user.
+
+http://bit.ly/aJEwYj
+
+-- Owen
+
+From general-return-2160-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Wed Oct 13 14:55:24 2010
+Return-Path: <general-return-2160-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 81307 invoked from network); 13 Oct 2010 14:55:23 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 13 Oct 2010 14:55:23 -0000
+Received: (qmail 18621 invoked by uid 500); 13 Oct 2010 14:55:22 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 18549 invoked by uid 500); 13 Oct 2010 14:55:20 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 18540 invoked by uid 99); 13 Oct 2010 14:55:20 -0000
+Received: from nike.apache.org (HELO nike.apache.org) (192.87.106.230)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 14:55:20 +0000
+X-ASF-Spam-Status: No, hits=0.0 required=10.0
+	tests=FREEMAIL_FROM,RCVD_IN_DNSWL_NONE,SPF_PASS,T_TO_NO_BRKTS_FREEMAIL
+X-Spam-Check-By: apache.org
+Received-SPF: pass (nike.apache.org: domain of dsikar@gmail.com designates 209.85.214.176 as permitted sender)
+Received: from [209.85.214.176] (HELO mail-iw0-f176.google.com) (209.85.214.176)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 14:55:13 +0000
+Received: by iwn3 with SMTP id 3so8884251iwn.35
+        for <general@hadoop.apache.org>; Wed, 13 Oct 2010 07:54:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:mime-version:received:received:in-reply-to
+         :references:date:message-id:subject:from:to:content-type
+         :content-transfer-encoding;
+        bh=SZbgjxQ5RtExSHiEQ7O0+ayDjzr2Jdz8XZY7KC4cBLg=;
+        b=gdlqek69pG60ZDpPgAWGVSl02u3IlkE+4yw8E39ZD274iPk8qvRAJYgZRGYlh1ymqm
+         oxznQqaW99hPZBiZYiW4AsWtMOgBqqUeCpx8WGmRUwcCSTFaam2hFSQsY75h9IE7YIaw
+         pYMvS6Q2G7WWrvlAovERZB76OXbf8P/6Rooxc=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=mime-version:in-reply-to:references:date:message-id:subject:from:to
+         :content-type:content-transfer-encoding;
+        b=QMIkzJqx8s36K68g6YVTxQpuR/kkyBKk4MNl7mjWQAa4jhfz5EI9jjo1LKB95bCkOB
+         2mXlZVR5JNNOtpL2ZGsLMSJUQ8NehXOMwbY46yGJ6Ol5b5hpZbvrX7Q8URSua2ztKL7h
+         nYeeQu7d59KEXc0mSrBaGoQUNJO1yOoQsJX44=
+MIME-Version: 1.0
+Received: by 10.231.16.76 with SMTP id n12mr1808998iba.97.1286981691766; Wed,
+ 13 Oct 2010 07:54:51 -0700 (PDT)
+Received: by 10.231.172.211 with HTTP; Wed, 13 Oct 2010 07:54:51 -0700 (PDT)
+In-Reply-To: <80D1F44F-5D35-4764-8911-94907EAEAA36@announcemedia.com>
+References: <C8DB7955.17EB%a.reiter@web.de>
+	<AANLkTikK0=epR6TupiS1Vv+3ZwxurfM5QbKDX4L341=r@mail.gmail.com>
+	<80D1F44F-5D35-4764-8911-94907EAEAA36@announcemedia.com>
+Date: Wed, 13 Oct 2010 17:54:51 +0300
+Message-ID: <AANLkTikPec8pmgC3f0xGH0SGwAJmaz+KmBTfc=J=FrZA@mail.gmail.com>
+Subject: Re: Architecture
+From: daniel sikar <dsikar@gmail.com>
+To: general@hadoop.apache.org
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+X-Virus-Checked: Checked by ClamAV on apache.org
+
+Perhaps in-memory data grids could be considered?
+
+On 13 October 2010 17:02, Jonathan Creasy <jon.creasy@announcemedia.com> wr=
+ote:
+> Not to sound argumentative but because perhaps I have misunderstood, Hbas=
+e doesn't seem well suited to realtime requests at all. Perhaps you could e=
+laborate on the architecture you would use to support this application?
+>
+> data starts here, goes here, this is done, it is accessed by a webserver =
+here, etc
+>
+> Thank you!
+>
+> On Oct 13, 2010, at 8:10 AM, "Tim Robertson" <timrobertson100@gmail.com> =
+wrote:
+>
+>> This sounds like you should be looking to HBase. =A0HBase is a data
+>> store that builds on top of Hadoop to meet those kind of real time
+>> storage and retrieval requirements.
+>>
+>> HTH,
+>> Tim
+>>
+>> On Wed, Oct 13, 2010 at 2:57 PM, Andre Reiter <a.reiter@web.de> wrote:
+>>> Hello everybody,
+>>>
+>>> i'm evaluating hadoop for a new platform.
+>>> the application is a web based application, and the challange is to han=
+dle
+>>> requests up to 1.000.000 times per second. this can actually be solved =
+by
+>>> load ballanced webservers.
+>>> The problem now is to persist user data at real time. Let's say every
+>>> request appends some data to the user record, i.e. 100 bytes are append=
+ed.
+>>> The record would have an identifier placed in the cookie.
+>>>
+>>> The problem now is to look up the user record for every request at runt=
+ime.
+>>> Is it possible to get the user record with the information about all fo=
+rmer
+>>> requests in a short time i.e. 50 ms ???
+>>>
+>>> i hove no experience with hadoop yet
+>>>
+>>> every help would be very appreciated
+>>> thanks in advance
+>>>
+>>> best regards
+>>> andre
+>>>
+>>>
+>>>
+>
+
+From general-return-2161-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Wed Oct 13 23:12:39 2010
+Return-Path: <general-return-2161-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 21672 invoked from network); 13 Oct 2010 23:12:39 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 13 Oct 2010 23:12:39 -0000
+Received: (qmail 74357 invoked by uid 500); 13 Oct 2010 23:12:37 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 74244 invoked by uid 500); 13 Oct 2010 23:12:37 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 74236 invoked by uid 99); 13 Oct 2010 23:12:36 -0000
+Received: from athena.apache.org (HELO athena.apache.org) (140.211.11.136)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 23:12:36 +0000
+X-ASF-Spam-Status: No, hits=2.2 required=10.0
+	tests=HTML_MESSAGE,RCVD_IN_DNSWL_NONE,SPF_PASS
+X-Spam-Check-By: apache.org
+Received-SPF: pass (athena.apache.org: domain of mmoores@real.com designates 207.188.23.7 as permitted sender)
+Received: from [207.188.23.7] (HELO cir-el.real.com) (207.188.23.7)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 23:12:31 +0000
+Received: from seacas01.corp.real.com ([::ffff:192.168.139.56])
+  (TLS: TLSv1/SSLv3,128bits,AES128-SHA)
+  by cir-el.real.com with esmtp; Wed, 13 Oct 2010 16:12:11 -0700
+  id 001FC1A1.4CB63CCB.00000ECB
+Received: from seambx.corp.real.com ([fe80::2d15:fda7:b3b8:e268]) by
+ seacas01.corp.real.com ([192.168.139.56]) with mapi; Wed, 13 Oct 2010
+ 16:12:10 -0700
+From: Michael Moores <mmoores@real.com>
+To: "general@hadoop.apache.org" <general@hadoop.apache.org>
+Date: Wed, 13 Oct 2010 16:12:09 -0700
+Subject: Specifying the InputFormat class that exists in a JAR on the hdfs
+Thread-Topic: Specifying the InputFormat class that exists in a JAR on the
+ hdfs
+Thread-Index: ActrLBA21b1czM9DQzSf8HOBnG1wdQ==
+Message-ID: <B2EA53A1-B10A-4FE8-84E4-313EFEE4CF39@real.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+acceptlanguage: en-US
+Content-Type: multipart/alternative;
+	boundary="_000_B2EA53A1B10A4FE884E4313EFEE4CF39realcom_"
+MIME-Version: 1.0
+
+--_000_B2EA53A1B10A4FE884E4313EFEE4CF39realcom_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+I have specified my InputFormat to be the cassandra ColumnFamilyInputFormat=
+, and also
+added the cassandra JAR to my classpath via a call to DistributedCache.addF=
+ileToClassPath().
+The JAR exists on the HDFS.
+When I run my jar I get  java.lang.NoClassDefFoundError: org/apache/cassand=
+ra/hadoop/ColumnFamilyInputFormat at the line that
+makes the job.setInputFormatClass() call.
+
+I execute the job with "hadoop jar <myjar>".
+
+Will I need to put my cassandra JAR on each machine and add it to the JVM s=
+tartup options???
+
+Here is a code snippet:
+
+public class MyStats extends Configured implements Tool {
+...
+   public static void main(String[] args) throws Exception {
+        // Let ToolRunner handle generic command-line options
+        Configuration configuration =3D new Configuration();
+        Path path =3D new Path("/user/hadoop/profilestats/cassandra-0.7.0-b=
+eta2.jar");
+        log.info("main: adding jars...");
+        DistributedCache.addFileToClassPath(path, configuration);
+
+
+
+
+
+        ToolRunner.run(configuration, new MyStats(), args);
+        System.exit(0);
+    }
+
+   public int run(String[] args) throws Exception {
+      Job job =3D new Job(getConf(), "myjob");
+      job.setInputFormatClass(org.apache.cassandra.hadoop.ColumnFamilyInput=
+Format.class);
+      ..
+      job.waitForCompletion(true);
+   }
+
+
+FILE LISTING from HDFS:
+
+[hadoop@kv-app02 ~]$ hadoop dfs -lsr
+10/10/13 14:57:47 INFO security.Groups: Group mapping impl=3Dorg.apache.had=
+oop.security.ShellBasedUnixGroupsMapping; cacheTimeout=3D300000
+10/10/13 14:57:48 WARN conf.Configuration: mapred.task.id is deprecated. In=
+stead, use mapreduce.task.attempt.id
+drwxr-xr-x   - hadoop supergroup          0 2010-10-13 14:34 /user/hadoop/p=
+rofilestats
+-rw-r--r--   3 hadoop supergroup    1841467 2010-10-13 14:34 /user/hadoop/p=
+rofilestats/cassandra-0.7.0-beta2.jar
+
+--_000_B2EA53A1B10A4FE884E4313EFEE4CF39realcom_--
+
+From general-return-2162-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Wed Oct 13 23:16:15 2010
+Return-Path: <general-return-2162-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 24875 invoked from network); 13 Oct 2010 23:16:14 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 13 Oct 2010 23:16:14 -0000
+Received: (qmail 78429 invoked by uid 500); 13 Oct 2010 23:16:13 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 78383 invoked by uid 500); 13 Oct 2010 23:16:13 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 78375 invoked by uid 99); 13 Oct 2010 23:16:13 -0000
+Received: from nike.apache.org (HELO nike.apache.org) (192.87.106.230)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 23:16:13 +0000
+X-ASF-Spam-Status: No, hits=-0.0 required=10.0
+	tests=RCVD_IN_DNSWL_NONE,SPF_PASS
+X-Spam-Check-By: apache.org
+Received-SPF: pass (nike.apache.org: domain of mmoores@real.com designates 207.188.23.7 as permitted sender)
+Received: from [207.188.23.7] (HELO cir-el.real.com) (207.188.23.7)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 23:16:06 +0000
+Received: from seacas01.corp.real.com ([::ffff:192.168.139.56])
+  (TLS: TLSv1/SSLv3,128bits,AES128-SHA)
+  by cir-el.real.com with esmtp; Wed, 13 Oct 2010 16:15:45 -0700
+  id 001FC18F.4CB63DA1.0000163E
+Received: from seambx.corp.real.com ([fe80::2d15:fda7:b3b8:e268]) by
+ seacas01.corp.real.com ([192.168.139.56]) with mapi; Wed, 13 Oct 2010
+ 16:15:44 -0700
+From: Michael Moores <mmoores@real.com>
+To: "general@hadoop.apache.org" <general@hadoop.apache.org>
+Date: Wed, 13 Oct 2010 16:15:43 -0700
+Subject: Re: Specifying the InputFormat class that exists in a JAR on the
+ hdfs
+Thread-Topic: Specifying the InputFormat class that exists in a JAR on the
+ hdfs
+Thread-Index: ActrLI/clJ+XArMuTBaK1xfxJjkT9w==
+Message-ID: <2EB7C48D-7640-4B76-8135-9120E39031A6@real.com>
+References: <B2EA53A1-B10A-4FE8-84E4-313EFEE4CF39@real.com>
+In-Reply-To: <B2EA53A1-B10A-4FE8-84E4-313EFEE4CF39@real.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+acceptlanguage: en-US
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-Virus-Checked: Checked by ClamAV on apache.org
+
+fyi- I also tried thr archive version--=20
+
+calling DistributedCache.addArchiveToClassPath(path, configuration);
+
+On Oct 13, 2010, at 4:12 PM, Michael Moores wrote:
+
+> I have specified my InputFormat to be the cassandra ColumnFamilyInputForm=
+at, and also
+> added the cassandra JAR to my classpath via a call to DistributedCache.ad=
+dFileToClassPath().
+> The JAR exists on the HDFS.
+> When I run my jar I get  java.lang.NoClassDefFoundError: org/apache/cassa=
+ndra/hadoop/ColumnFamilyInputFormat at the line that
+> makes the job.setInputFormatClass() call.
+>=20
+> I execute the job with "hadoop jar <myjar>".
+>=20
+> Will I need to put my cassandra JAR on each machine and add it to the JVM=
+ startup options???
+>=20
+> Here is a code snippet:
+>=20
+> public class MyStats extends Configured implements Tool {
+> ...
+>   public static void main(String[] args) throws Exception {
+>        // Let ToolRunner handle generic command-line options
+>        Configuration configuration =3D new Configuration();
+>        Path path =3D new Path("/user/hadoop/profilestats/cassandra-0.7.0-=
+beta2.jar");
+>        log.info("main: adding jars...");
+>        DistributedCache.addFileToClassPath(path, configuration);
+>=20
+>=20
+>=20
+>=20
+>=20
+>        ToolRunner.run(configuration, new MyStats(), args);
+>        System.exit(0);
+>    }
+>=20
+>   public int run(String[] args) throws Exception {
+>      Job job =3D new Job(getConf(), "myjob");
+>      job.setInputFormatClass(org.apache.cassandra.hadoop.ColumnFamilyInpu=
+tFormat.class);
+>      ..
+>      job.waitForCompletion(true);
+>   }
+>=20
+>=20
+> FILE LISTING from HDFS:
+>=20
+> [hadoop@kv-app02 ~]$ hadoop dfs -lsr
+> 10/10/13 14:57:47 INFO security.Groups: Group mapping impl=3Dorg.apache.h=
+adoop.security.ShellBasedUnixGroupsMapping; cacheTimeout=3D300000
+> 10/10/13 14:57:48 WARN conf.Configuration: mapred.task.id is deprecated. =
+Instead, use mapreduce.task.attempt.id
+> drwxr-xr-x   - hadoop supergroup          0 2010-10-13 14:34 /user/hadoop=
+/profilestats
+> -rw-r--r--   3 hadoop supergroup    1841467 2010-10-13 14:34 /user/hadoop=
+/profilestats/cassandra-0.7.0-beta2.jar
+
+
+From general-return-2163-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org Wed Oct 13 23:22:07 2010
+Return-Path: <general-return-2163-apmail-hadoop-general-archive=hadoop.apache.org@hadoop.apache.org>
+Delivered-To: apmail-hadoop-general-archive@minotaur.apache.org
+Received: (qmail 29417 invoked from network); 13 Oct 2010 23:22:06 -0000
+Received: from unknown (HELO mail.apache.org) (140.211.11.3)
+  by 140.211.11.9 with SMTP; 13 Oct 2010 23:22:06 -0000
+Received: (qmail 89092 invoked by uid 500); 13 Oct 2010 23:22:05 -0000
+Delivered-To: apmail-hadoop-general-archive@hadoop.apache.org
+Received: (qmail 89044 invoked by uid 500); 13 Oct 2010 23:22:05 -0000
+Mailing-List: contact general-help@hadoop.apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:general-help@hadoop.apache.org>
+List-Unsubscribe: <mailto:general-unsubscribe@hadoop.apache.org>
+List-Post: <mailto:general@hadoop.apache.org>
+List-Id: <general.hadoop.apache.org>
+Reply-To: general@hadoop.apache.org
+Delivered-To: mailing list general@hadoop.apache.org
+Received: (qmail 89036 invoked by uid 99); 13 Oct 2010 23:22:05 -0000
+Received: from athena.apache.org (HELO athena.apache.org) (140.211.11.136)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 23:22:05 +0000
+X-ASF-Spam-Status: No, hits=2.2 required=10.0
+	tests=HTML_MESSAGE,RCVD_IN_DNSWL_NONE,SPF_PASS
+X-Spam-Check-By: apache.org
+Received-SPF: pass (athena.apache.org: domain of shrijeet@rocketfuelinc.com designates 209.85.216.48 as permitted sender)
+Received: from [209.85.216.48] (HELO mail-qw0-f48.google.com) (209.85.216.48)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 13 Oct 2010 23:22:00 +0000
+Received: by qwf7 with SMTP id 7so1493192qwf.35
+        for <general@hadoop.apache.org>; Wed, 13 Oct 2010 16:21:39 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.229.236.133 with SMTP id kk5mr8136069qcb.191.1287012099582;
+ Wed, 13 Oct 2010 16:21:39 -0700 (PDT)
+Received: by 10.229.250.21 with HTTP; Wed, 13 Oct 2010 16:21:39 -0700 (PDT)
+In-Reply-To: <2EB7C48D-7640-4B76-8135-9120E39031A6@real.com>
+References: <B2EA53A1-B10A-4FE8-84E4-313EFEE4CF39@real.com>
+	<2EB7C48D-7640-4B76-8135-9120E39031A6@real.com>
+Date: Wed, 13 Oct 2010 16:21:39 -0700
+Message-ID: <AANLkTim=PWyk_Pp4rC4uJ3S-bYP1_Pk9w3yoSgajqmWX@mail.gmail.com>
+Subject: Re: Specifying the InputFormat class that exists in a JAR on the hdfs
+From: Shrijeet Paliwal <shrijeet@rocketfuel.com>

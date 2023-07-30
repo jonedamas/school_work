@@ -1,0 +1,8 @@
+Hvilken samling skal man velge
+
+Lister - Utvider seg ved behov, har definert rekkefølger, kan slå opp med indekser
+Tupler - Uforandelig, har definert rekkefølger, kan slå opp med indekser
+Numpy arrays - Har definert rekkefølge, støtter matrise-matematikk, støtter matriser
+Dictionaries - Slår opp med nøkler for å finne verdier, nøkler må være unike, verdier trenger ikke å være unike
+Mengder - støtter mengdeoperasjoner, tillater ikke duplikater, har ingen fast rekkefølge
+

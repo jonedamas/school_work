@@ -1,0 +1,19 @@
+﻿DAT110 Øving 1: Basis Python Programmering og kontrollstrukturer
+Læringsmål
+I denne øvingen skal du få litt erfaring med å bruke grunnleggende Python på noen enkle eksempler samt prøve deg på kontrollstrukturene i Python.
+Oppgaver
+a) Skriv et program (script) som beregner hvor langt et objekt har falt etter en gitt tid. Anta at det står stille og at du slipper det ved tid 0. Programmet skal
+a. Lese inn et tall fra brukeren, som er antall sekunder objektet har falt.
+b. Regne ut farten i meter pr. sekund etter det antallet sekunder med formelen fart = akselerasjon*tid. Akselerasjonen fra tyngdekraften er 9,81 m/s2.
+c. Regne ut distansen objektet har falt i meter med formelen distanse = 0,5*fart*tid
+d. Skrive ut fart og distanse.
+b) Skriv om programmet fra oppgave a) slik at det sjekker at tallet brukeren har skrevet inn er et tall større enn 0, og skriver ut en feilmelding hvis det ikke er større enn 0.
+c) Skriv et program som legger sammen positive flyttall – for eksempel priser på varer du tenker å kjøpe. Så lenge brukeren skriver inn positive tall skal programmet legge det nye tallet til sin eksisterende sum, skrive ut summen og spørre brukeren etter et nytt tall. Hvis brukeren skriver inn 0 eller et negativt tall skal programmet avslutte og skrive ut den endelige summen.
+d) Utvid programmet fra oppgave b) til å skrive ut fart og distanse for flere tidspunkt. Programmet skal be brukeren om et tidsintervall (for eksempel 2 sekunder) og et antall intervaller (for eksempel 10). Deretter skal programmet regne ut fart og distanse for hvert intervall og skrive det ut. I eksemplet skal programmet regne ut og skrive ut fart og distanse etter 2, 4, 6, 8, 10, 12, 14, 16, 18 og 20 sekunder.
+e) Du kan bruke løkker og Turtle Graphics for å tegne opp en stjerne. Start med å gå fram for eksempel 50, og deretter tilbake. Snu 15 grader. Gå fram og tilbake på nytt. Gjenta til du har snudd deg helt rundt. Etter dette har du tegnet opp ei stjerne. Eksperimenter med ulike vinkler og avstander for å se på ulike stjerner. Du kan eventuelt bruke en input-setning for å lese inn vinkelen. Bildet under viser en stjerne med 15 grader mellom hver linje.
+
+f) Skriv om sjekkene i oppgave b) slik at brukeren får sjansen til å skrive inn lovlige data hvis brukeren skrev feil.
+g) Ta koden for å tegne ei stjerne som du lagde i oppgave e). Bruk en input setning for å lese inn antall stjerner. Bruk ei løkke for å tegne opp det antallet stjerner i rett linje etter hverandre. Bildet under viser et eksempel med 6 stjerner. Hint: For å starte tegningen et annet sted enn midt på, flytt tegneren før du starter å tegne, for eksempel ta opp penna og gå bakover halvparten så langt som du går fram i løpet av hele tegneprosessen.
+
+Praktisk
+Denne øvingen er frivillig våren 2021.
