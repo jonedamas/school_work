@@ -1,10 +1,15 @@
-SAheart = read.table("STA530_statistical_learning/lectures/Chap4/SAheart.data", sep=",", header = TRUE)
+SAheart <- read.table(
+  "STA530_statistical_learning/lectures/Chap4/SAheart.data",
+  sep = ",",
+  header = TRUE
+)
 head(SAheart)
-SAheart = SAheart[,-1] # Remove the row names column
+
+SAheart <- SAheart[, -1] # Remove the row names column
 head(SAheart)
-heartds = SAheart
-heartds$chd = as.factor(heartds$chd)
-heartds = heartds[,c(10,1:9)]
+heartds <- SAheart
+heartds$chd <- as.factor(heartds$chd)
+heartds <- heartds[, c(10, 1:9)]
 head(heartds)
 
 
@@ -16,29 +21,33 @@ library(kableExtra)
 
 
 data(Default)
-head(Default,5)
+head(Default, 5)
 
-Default$default = ifelse(Default$default == "Yes", 1, 0)
+Default$default <- ifelse(Default$default == "Yes", 1, 0)
 
-lm1_default = lm(default~balance, data=Default)
-lm1_alpha = coef(lm1_default)[1]
-lm1_beta = coef(lm1_default)[2]
+lm1_default <- lm(default ~ balance, data = Default)
+lm1_alpha <- coef(lm1_default)[1]
+lm1_beta <- coef(lm1_default)[2]
 
-lm2_default = lm(default~income, data=Default)
-lm2_alpha = coef(lm2_default)[1]
-lm2_beta = coef(lm2_default)[2]
+lm2_default <- lm(default ~ income, data = Default)
+lm2_alpha <- coef(lm2_default)[1]
+lm2_beta <- coef(lm2_default)[2]
 
-gglm1 = ggplot(Default, aes(x=balance, y=default))+geom_point() +
-  geom_line(aes(x=balance, y=lm1_alpha + lm1_beta*balance), col="red")
-gglm2 = ggplot(Default, aes(x=income, y=default))+geom_point() + 
-  geom_line(aes(x=income, y=lm2_alpha + lm2_beta*income), col="orange")
-ggarrange(gglm1,gglm2)
+gglm1 <- ggplot(Default, aes(x = balance, y = default)) +
+  geom_point() +
+  geom_line(aes(x = balance, y = lm1_alpha + lm1_beta * balance), col = "red")
+
+gglm2 <- ggplot(Default, aes(x = income, y = default)) +
+  geom_point() +
+  geom_line(aes(x = income, y = lm2_alpha + lm2_beta * income), col = "orange")
+
+ggarrange(gglm1, gglm2)
 
 
 library(ggplot2)
-ggplot(data.frame(x=c(-6,5)), aes(x))+
-  xlab(expression(x))+ 
-  ylab(expression(p))+
+ggplot(data.frame(x = c(-6, 5)), aes(x)) +
+  xlab(expression(x)) +
+  ylab(expression(p)) +
     stat_function(fun=function(x) exp(x)/(1+exp(x)), geom="line", colour="red")+
     stat_function(fun=function(x) exp(2*x)/(1+exp(2*x)), geom="line", colour="orange")+
           stat_function(fun=function(x) exp(0.5*x)/(1+exp(0.5*x)), geom="line", colour="blue")+

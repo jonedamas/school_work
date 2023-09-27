@@ -1,0 +1,136 @@
+---
+title: "Exercise 13 chapter 4"
+output:
+  word_document:
+    toc: yes
+    toc_depth: '2'
+  beamer_presentation:
+    keep_tex: yes
+    fig_caption: no
+    latex_engine: xelatex
+  html_document:
+    toc: yes
+    toc_float: yes
+    toc_depth: 2
+  pdf_document:
+    toc: yes
+    toc_depth: 2
+    keep_tex: yes
+    fig_caption: yes
+editor_options:
+  chunk_output_type: console
+fig.width: 6.5
+fig.height: 6.5
+---
+
+
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(tidy.opts = list(width.cutoff = 68), tidy = TRUE)
+knitr::opts_chunk$set(
+  echo = TRUE,
+  tidy = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  strip.white = TRUE,
+  prompt = FALSE
+)
+```
+
+# 4.8.13
+
+## a.)
+
+```{r}
+library(ISLR2)
+
+# Load data
+data("Weekly")
+
+df <- Weekly
+
+head(df)
+```
+
+# b.)
+
+```{r}
+clm <- glm(
+  Direction ~ Lag1 + Lag2 + Lag3 + Lag4 + Lag5 + Volume,
+  data = df, family = binomial
+)
+
+summary(clm)
+```
+
+The smallest p-value is for Lag2, which is 0.0219. This means that Lag2 is the only variable that is statistically significant.
+
+# c.)
+
+```{r}
+library(caret)
+library(InformationValue)
+
+conf_matrix <- function(clm, test){
+  predicted <- predict(clm, test, type = "response")
+
+  predicted <- as.factor(ifelse(predicted > 0.5, "Up", "Down"))
+
+  confusionMatrix(predicted, test$Direction)
+}
+
+split <- sample(c(TRUE, FALSE), nrow(df), replace = TRUE, prob = c(0.7, 0.3))
+
+train <- df[split, ]
+test <- df[!split, ]
+
+clm <- glm(
+  Direction ~ Lag2,
+  data = train, family = binomial
+)
+
+conf_matrix(clm, test)
+```
+
+# d.)
+
+```{r}
+
+train <- df[df$Year <= 2008, ]
+test <- df[df$Year > 2008, ]
+
+clm <- glm(
+  Direction ~ Lag2,
+  data = train, family = binomial
+)
+
+conf_matrix(clm, test)
+```
+
+# e.)
+
+```{r}
+library(MASS)
+
+clm_lda <- lda(
+  Direction ~ Lag2,
+  data = train
+)
+
+predicted <- predict(clm_lda, test, type = "response")
+
+predicted
+```
+
+# f.)
+
+```{r}
+
+```
+
+# g.)
+
+```{r}
+
+```

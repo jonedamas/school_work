@@ -2,15 +2,15 @@
 title: "Chapter 4: Classification"
 date: 'STA530, autumn 2023 '
 output:
-  beamer_presentation:
-    keep_tex: yes
-    fig_caption: false
-    latex_engine: xelatex
   pdf_document:
     toc: true
     toc_depth: 2
     keep_tex: yes
     fig_caption: yes
+  beamer_presentation:
+    keep_tex: yes
+    fig_caption: false
+    latex_engine: xelatex
   html_document:
     toc: true
     toc_float: true
@@ -20,7 +20,6 @@ editor_options:
 fig.width: 6.5
 fig.height: 6.5
 ---
-
 
 
 ```{r setup, include=FALSE}
@@ -91,6 +90,8 @@ Data from a medical study with focus on development of coronary heart disease (`
 
 \scriptsize
 ```{r,echo=showsolB}
+install.packages("kableExtra")
+
 library(knitr)
 library(kableExtra)
 SAheart = read.table("SAheart.data", sep=",", header = TRUE)
@@ -130,7 +131,7 @@ library(ggpubr)
 library(knitr)
 library(kableExtra)
 data(Default)
-kable(head(Default,5))
+kable(head(Default, 5))
 ```
 
 ***
@@ -146,7 +147,7 @@ Then maybe we could do the classification according to the rule: classify as "Ye
 
 ```{r,echo=FALSE}
 
-Default$default = ifelse(Default$default == "Yes", 1, 0)
+Default$default <- ifelse(Default$default == "Yes", 1, 0)
 
 lm1_default = lm(default~balance, data=Default)
 lm1_alpha = coef(lm1_default)[1]

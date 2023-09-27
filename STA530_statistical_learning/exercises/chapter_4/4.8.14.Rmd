@@ -1,0 +1,91 @@
+---
+title: "Exercises 14 chapter 4"
+output:
+  word_document:
+    toc: yes
+    toc_depth: '2'
+  beamer_presentation:
+    keep_tex: yes
+    fig_caption: no
+    latex_engine: xelatex
+  html_document:
+    toc: yes
+    toc_float: yes
+    toc_depth: 2
+  pdf_document:
+    toc: yes
+    toc_depth: 2
+    keep_tex: yes
+    fig_caption: yes
+editor_options:
+  chunk_output_type: console
+fig.width: 6.5
+fig.height: 6.5
+---
+
+
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(tidy.opts = list(width.cutoff = 68), tidy = TRUE)
+knitr::opts_chunk$set(
+  echo = TRUE,
+  tidy = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  strip.white = TRUE,
+  prompt = FALSE
+)
+```
+
+# 4.8.14
+
+## a.)
+
+```{r}
+library(ISLR)
+data("Auto")
+
+df <- Auto
+
+df$mpg01 <- ifelse(df$mpg > median(df$mpg), 1, 0)
+
+head(df)
+```
+
+# b.)
+
+```{r}
+pairs(df)
+```
+
+
+# c.)
+
+```{r}
+
+```
+
+# d.)
+
+```{r}
+
+```
+
+# e.)
+
+```{r}
+
+```
+
+# f.)
+
+```{r}
+
+```
+
+# g.)
+
+```{r}
+
+```
